@@ -1,0 +1,8 @@
+[mod]
+name="RTVModLib"
+id="rtv-mod-lib"
+version="1.0.0"
+
+[autoload]
+RTVModLibCore="!res://RTVModLib/RTVLib.gd"
+RTVModLibBoot="res://RTVModLib/Main.gd"
