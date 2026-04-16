@@ -1,6 +1,7 @@
 # RTVModLib — Hook Framework for Road to Vostok
 
 RTVModLib provides a hook system for Road to Vostok mods, allowing multiple mods to intercept and modify game behavior without conflicting with each other.
+This is still very much a WIP framework, I would advise against using it until there is a release.
 
 ## How It Works
 
