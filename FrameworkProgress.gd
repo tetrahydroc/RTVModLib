@@ -5,6 +5,7 @@ func Use(time):
 	if !_lib:
 		super(time)
 		return
+	_lib._caller = self
 	_lib._dispatch("progress-use-pre", [time])
 	var _repl = _lib._get_hooks("progress-use")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Load(time):
 	if !_lib:
 		super(time)
 		return
+	_lib._caller = self
 	_lib._dispatch("progress-load-pre", [time])
 	var _repl = _lib._get_hooks("progress-load")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Unload(time):
 	if !_lib:
 		super(time)
 		return
+	_lib._caller = self
 	_lib._dispatch("progress-unload-pre", [time])
 	var _repl = _lib._get_hooks("progress-unload")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("progress-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("progress-_physics_process")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func PlayAmmoLoad():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("progress-playammoload-pre", [])
 	var _repl = _lib._get_hooks("progress-playammoload")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func _on_timer_timeout():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("progress-_on_timer_timeout-pre", [])
 	var _repl = _lib._get_hooks("progress-_on_timer_timeout")
 	if _repl.size() > 0:

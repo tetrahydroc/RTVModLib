@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-_ready-pre", [])
 	var _repl = _lib._get_hooks("btr-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("btr-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func States(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-states-pre", [delta])
 	var _repl = _lib._get_hooks("btr-states")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Mixer(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-mixer-pre", [delta])
 	var _repl = _lib._get_hooks("btr-mixer")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Drive(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-drive-pre", [delta])
 	var _repl = _lib._get_hooks("btr-drive")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Tires(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-tires-pre", [delta])
 	var _repl = _lib._get_hooks("btr-tires")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Suspension(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-suspension-pre", [delta])
 	var _repl = _lib._get_hooks("btr-suspension")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Wobble(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-wobble-pre", [delta])
 	var _repl = _lib._get_hooks("btr-wobble")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func Turret(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-turret-pre", [delta])
 	var _repl = _lib._get_hooks("btr-turret")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func Sensor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-sensor-pre", [delta])
 	var _repl = _lib._get_hooks("btr-sensor")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func LOSCheck(target: Vector3):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-loscheck-pre", [target])
 	var _repl = _lib._get_hooks("btr-loscheck")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func Fire(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-fire-pre", [delta])
 	var _repl = _lib._get_hooks("btr-fire")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func Raycast():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-raycast-pre", [])
 	var _repl = _lib._get_hooks("btr-raycast")
 	if _repl.size() > 0:
@@ -270,6 +283,7 @@ func Accuracy():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("btr-accuracy-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("btr-accuracy")
@@ -294,6 +308,7 @@ func Hit(hitCollider, hitPoint, hitNormal, hitSurface):
 	if !_lib:
 		super(hitCollider, hitPoint, hitNormal, hitSurface)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-hit-pre", [hitCollider, hitPoint, hitNormal, hitSurface])
 	var _repl = _lib._get_hooks("btr-hit")
 	if _repl.size() > 0:
@@ -314,6 +329,7 @@ func Muzzle():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-muzzle-pre", [])
 	var _repl = _lib._get_hooks("btr-muzzle")
 	if _repl.size() > 0:
@@ -334,6 +350,7 @@ func Smoke():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-smoke-pre", [])
 	var _repl = _lib._get_hooks("btr-smoke")
 	if _repl.size() > 0:
@@ -354,6 +371,7 @@ func Audio(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-audio-pre", [delta])
 	var _repl = _lib._get_hooks("btr-audio")
 	if _repl.size() > 0:
@@ -374,6 +392,7 @@ func PlayFire():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-playfire-pre", [])
 	var _repl = _lib._get_hooks("btr-playfire")
 	if _repl.size() > 0:
@@ -394,6 +413,7 @@ func PlayTail():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-playtail-pre", [])
 	var _repl = _lib._get_hooks("btr-playtail")
 	if _repl.size() > 0:
@@ -414,6 +434,7 @@ func PlayCrack():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-playcrack-pre", [])
 	var _repl = _lib._get_hooks("btr-playcrack")
 	if _repl.size() > 0:
@@ -434,6 +455,7 @@ func PlayFlyby():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-playflyby-pre", [])
 	var _repl = _lib._get_hooks("btr-playflyby")
 	if _repl.size() > 0:
@@ -454,6 +476,7 @@ func PlaySmokeLaunch():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-playsmokelaunch-pre", [])
 	var _repl = _lib._get_hooks("btr-playsmokelaunch")
 	if _repl.size() > 0:
@@ -474,6 +497,7 @@ func PlaySmokeExplode():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("btr-playsmokeexplode-pre", [])
 	var _repl = _lib._get_hooks("btr-playsmokeexplode")
 	if _repl.size() > 0:

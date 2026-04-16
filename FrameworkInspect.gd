@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-_ready-pre", [])
 	var _repl = _lib._get_hooks("inspect-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func ShowWeaponUI():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-showweaponui-pre", [])
 	var _repl = _lib._get_hooks("inspect-showweaponui")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func HideWeaponUI():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-hideweaponui-pre", [])
 	var _repl = _lib._get_hooks("inspect-hideweaponui")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func GetAvailableAttachments():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-getavailableattachments-pre", [])
 	var _repl = _lib._get_hooks("inspect-getavailableattachments")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func GetActiveAttachments():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-getactiveattachments-pre", [])
 	var _repl = _lib._get_hooks("inspect-getactiveattachments")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func ClearAvailableAttachments():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-clearavailableattachments-pre", [])
 	var _repl = _lib._get_hooks("inspect-clearavailableattachments")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ClearActiveAttachments():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-clearactiveattachments-pre", [])
 	var _repl = _lib._get_hooks("inspect-clearactiveattachments")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func GetCurrentWeaponRig():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-getcurrentweaponrig-pre", [])
 	var _repl = _lib._get_hooks("inspect-getcurrentweaponrig")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func GetWeaponStats():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-getweaponstats-pre", [])
 	var _repl = _lib._get_hooks("inspect-getweaponstats")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func GetAmmoCount():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-getammocount-pre", [])
 	var _repl = _lib._get_hooks("inspect-getammocount")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func ActivateAttachment(slotData: SlotData, index: int):
 	if !_lib:
 		super(slotData, index)
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-activateattachment-pre", [slotData, index])
 	var _repl = _lib._get_hooks("inspect-activateattachment")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func DeactivateAttachment(slotData: SlotData, index: int):
 	if !_lib:
 		super(slotData, index)
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-deactivateattachment-pre", [slotData, index])
 	var _repl = _lib._get_hooks("inspect-deactivateattachment")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func ResetActiveAttachment(slotData: SlotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-resetactiveattachment-pre", [slotData])
 	var _repl = _lib._get_hooks("inspect-resetactiveattachment")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func AttachAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inspect-attachaudio-pre", [])
 	var _repl = _lib._get_hooks("inspect-attachaudio")
 	if _repl.size() > 0:

@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("door-_ready-pre", [])
 	var _repl = _lib._get_hooks("door-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("door-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("door-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("door-interact-pre", [])
 	var _repl = _lib._get_hooks("door-interact")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func CheckKey():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("door-checkkey-pre", [])
 	var _repl = _lib._get_hooks("door-checkkey")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("door-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("door-updatetooltip")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func PlayDoor():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("door-playdoor-pre", [])
 	var _repl = _lib._get_hooks("door-playdoor")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func PlayUnlock():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("door-playunlock-pre", [])
 	var _repl = _lib._get_hooks("door-playunlock")
 	if _repl.size() > 0:

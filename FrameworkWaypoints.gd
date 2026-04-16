@@ -5,6 +5,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("waypoints-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("waypoints-executeclear")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecuteGenerate(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("waypoints-executegenerate-pre", [_value])
 	var _repl = _lib._get_hooks("waypoints-executegenerate")
 	if _repl.size() > 0:
@@ -44,6 +46,7 @@ func GetMeshY(mdt: MeshDataTool, x: float, z: float):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(mdt, x, z)
+	_lib._caller = self
 	_lib._dispatch("waypoints-getmeshy-pre", [mdt, x, z])
 	var _result
 	var _repl = _lib._get_hooks("waypoints-getmeshy")
@@ -68,6 +71,7 @@ func SpawnWaypoint(spawnPosition: Vector3):
 	if !_lib:
 		super(spawnPosition)
 		return
+	_lib._caller = self
 	_lib._dispatch("waypoints-spawnwaypoint-pre", [spawnPosition])
 	var _repl = _lib._get_hooks("waypoints-spawnwaypoint")
 	if _repl.size() > 0:

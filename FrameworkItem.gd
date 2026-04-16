@@ -5,6 +5,7 @@ func Initialize(source, data):
 	if !_lib:
 		super(source, data)
 		return
+	_lib._caller = self
 	_lib._dispatch("item-initialize-pre", [source, data])
 	var _repl = _lib._get_hooks("item-initialize")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Display(source, data, showReturns: bool):
 	if !_lib:
 		super(source, data, showReturns)
 		return
+	_lib._caller = self
 	_lib._dispatch("item-display-pre", [source, data, showReturns])
 	var _repl = _lib._get_hooks("item-display")
 	if _repl.size() > 0:
@@ -44,6 +46,7 @@ func Remove(nestedIndex):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(nestedIndex)
+	_lib._caller = self
 	_lib._dispatch("item-remove-pre", [nestedIndex])
 	var _result
 	var _repl = _lib._get_hooks("item-remove")
@@ -68,6 +71,7 @@ func Combine(itemDragged):
 	if !_lib:
 		super(itemDragged)
 		return
+	_lib._caller = self
 	_lib._dispatch("item-combine-pre", [itemDragged])
 	var _repl = _lib._get_hooks("item-combine")
 	if _repl.size() > 0:
@@ -87,6 +91,7 @@ func CombineSwap(itemDragged):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(itemDragged)
+	_lib._caller = self
 	_lib._dispatch("item-combineswap-pre", [itemDragged])
 	var _result
 	var _repl = _lib._get_hooks("item-combineswap")
@@ -111,6 +116,7 @@ func UpdateSprite():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("item-updatesprite-pre", [])
 	var _repl = _lib._get_hooks("item-updatesprite")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func UpdateDetails():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("item-updatedetails-pre", [])
 	var _repl = _lib._get_hooks("item-updatedetails")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func UpdateAttachments():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("item-updateattachments-pre", [])
 	var _repl = _lib._get_hooks("item-updateattachments")
 	if _repl.size() > 0:
@@ -170,6 +178,7 @@ func Value():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("item-value-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("item-value")
@@ -193,6 +202,7 @@ func Weight():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("item-weight-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("item-weight")
@@ -217,6 +227,7 @@ func State(state):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("item-state-pre", [state])
 	var _repl = _lib._get_hooks("item-state")
 	if _repl.size() > 0:

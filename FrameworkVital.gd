@@ -5,6 +5,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("vital-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("vital-_physics_process")
 	if _repl.size() > 0:

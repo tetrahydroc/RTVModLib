@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-_ready-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("rigmanager-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func DrawPrimary(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-drawprimary-pre", [slotData])
 	var _repl = _lib._get_hooks("rigmanager-drawprimary")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func DrawSecondary(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-drawsecondary-pre", [slotData])
 	var _repl = _lib._get_hooks("rigmanager-drawsecondary")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func DrawKnife(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-drawknife-pre", [slotData])
 	var _repl = _lib._get_hooks("rigmanager-drawknife")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func DrawGrenade1(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-drawgrenade1-pre", [slotData])
 	var _repl = _lib._get_hooks("rigmanager-drawgrenade1")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func DrawGrenade2(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-drawgrenade2-pre", [slotData])
 	var _repl = _lib._get_hooks("rigmanager-drawgrenade2")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func MuzzleFlash(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-muzzleflash-pre", [delta])
 	var _repl = _lib._get_hooks("rigmanager-muzzleflash")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func UpdateRig(animate):
 	if !_lib:
 		super(animate)
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-updaterig-pre", [animate])
 	var _repl = _lib._get_hooks("rigmanager-updaterig")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func ClearRig():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-clearrig-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-clearrig")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func Malfunction():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-malfunction-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-malfunction")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func LoadPrimary():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-loadprimary-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-loadprimary")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func LoadSecondary():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-loadsecondary-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-loadsecondary")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func LoadKnife():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-loadknife-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-loadknife")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func LoadGrenade1():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-loadgrenade1-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-loadgrenade1")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func LoadGrenade2():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-loadgrenade2-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-loadgrenade2")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func PlayEquip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-playequip-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-playequip")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func PlayUnequip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("rigmanager-playunequip-pre", [])
 	var _repl = _lib._get_hooks("rigmanager-playunequip")
 	if _repl.size() > 0:

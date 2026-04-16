@@ -5,6 +5,7 @@ func ConnectBounce():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lure-connectbounce-pre", [])
 	var _repl = _lib._get_hooks("lure-connectbounce")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Collided(body: Node3D):
 	if !_lib:
 		super(body)
 		return
+	_lib._caller = self
 	_lib._dispatch("lure-collided-pre", [body])
 	var _repl = _lib._get_hooks("lure-collided")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func PlayBounce(surface):
 	if !_lib:
 		super(surface)
 		return
+	_lib._caller = self
 	_lib._dispatch("lure-playbounce-pre", [surface])
 	var _repl = _lib._get_hooks("lure-playbounce")
 	if _repl.size() > 0:

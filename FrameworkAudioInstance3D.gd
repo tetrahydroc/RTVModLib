@@ -5,6 +5,7 @@ func PlayInstance(audioEvent: AudioEvent, unitSize: float, maxDistance: float):
 	if !_lib:
 		super(audioEvent, unitSize, maxDistance)
 		return
+	_lib._caller = self
 	_lib._dispatch("audioinstance3d-playinstance-pre", [audioEvent, unitSize, maxDistance])
 	var _repl = _lib._get_hooks("audioinstance3d-playinstance")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audioinstance3d-_process-pre", [_delta])
 	var _repl = _lib._get_hooks("audioinstance3d-_process")
 	if _repl.size() > 0:

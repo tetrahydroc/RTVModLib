@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("world-_ready-pre", [])
 	var _repl = _lib._get_hooks("world-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-_process-pre", [delta])
 	var _repl = _lib._get_hooks("world-_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func TOD():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("world-tod-pre", [])
 	var _repl = _lib._get_hooks("world-tod")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Weather(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-weather-pre", [delta])
 	var _repl = _lib._get_hooks("world-weather")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Audio(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-audio-pre", [delta])
 	var _repl = _lib._get_hooks("world-audio")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Static():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("world-static-pre", [])
 	var _repl = _lib._get_hooks("world-static")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ExecuteLowRendering(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executelowrendering-pre", [_value])
 	var _repl = _lib._get_hooks("world-executelowrendering")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func ExecuteMediumRendering(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executemediumrendering-pre", [_value])
 	var _repl = _lib._get_hooks("world-executemediumrendering")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func ExecuteHighRendering(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executehighrendering-pre", [_value])
 	var _repl = _lib._get_hooks("world-executehighrendering")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func ExecuteUltraRendering(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executeultrarendering-pre", [_value])
 	var _repl = _lib._get_hooks("world-executeultrarendering")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func ExecuteLowLighting(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executelowlighting-pre", [_value])
 	var _repl = _lib._get_hooks("world-executelowlighting")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func ExecuteMediumLighting(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executemediumlighting-pre", [_value])
 	var _repl = _lib._get_hooks("world-executemediumlighting")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func ExecuteHighLighting(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executehighlighting-pre", [_value])
 	var _repl = _lib._get_hooks("world-executehighlighting")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func ExecuteUltraLighting(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executeultralighting-pre", [_value])
 	var _repl = _lib._get_hooks("world-executeultralighting")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func ExecuteDetailShadowsOn(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executedetailshadowson-pre", [_value])
 	var _repl = _lib._get_hooks("world-executedetailshadowson")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func ExecuteDetailShadowsOff(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executedetailshadowsoff-pre", [_value])
 	var _repl = _lib._get_hooks("world-executedetailshadowsoff")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func ExecuteWaterReflectionsOn(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executewaterreflectionson-pre", [_value])
 	var _repl = _lib._get_hooks("world-executewaterreflectionson")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func ExecuteWaterReflectionsOff(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executewaterreflectionsoff-pre", [_value])
 	var _repl = _lib._get_hooks("world-executewaterreflectionsoff")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func ExecuteHideIndicators(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executehideindicators-pre", [_value])
 	var _repl = _lib._get_hooks("world-executehideindicators")
 	if _repl.size() > 0:
@@ -391,6 +410,7 @@ func ExecuteShowIndicators(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executeshowindicators-pre", [_value])
 	var _repl = _lib._get_hooks("world-executeshowindicators")
 	if _repl.size() > 0:
@@ -411,6 +431,7 @@ func ExecuteShowSpawns(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executeshowspawns-pre", [_value])
 	var _repl = _lib._get_hooks("world-executeshowspawns")
 	if _repl.size() > 0:
@@ -431,6 +452,7 @@ func ExecuteHideSpawns(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("world-executehidespawns-pre", [_value])
 	var _repl = _lib._get_hooks("world-executehidespawns")
 	if _repl.size() > 0:

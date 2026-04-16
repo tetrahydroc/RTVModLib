@@ -5,6 +5,7 @@ func Initialize(recipe: RecipeData, source):
 	if !_lib:
 		super(recipe, source)
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-initialize-pre", [recipe, source])
 	var _repl = _lib._get_hooks("recipe-initialize")
 	if _repl.size() > 0:
@@ -24,6 +25,7 @@ func CreateInputString():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("recipe-createinputstring-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("recipe-createinputstring")
@@ -47,6 +49,7 @@ func CreateOutputString():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("recipe-createoutputstring-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("recipe-createoutputstring")
@@ -71,6 +74,7 @@ func _on_input_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-_on_input_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("recipe-_on_input_toggled")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func _on_complete_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-_on_complete_pressed-pre", [])
 	var _repl = _lib._get_hooks("recipe-_on_complete_pressed")
 	if _repl.size() > 0:
@@ -110,6 +115,7 @@ func CanInput(slotData):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData)
+	_lib._caller = self
 	_lib._dispatch("recipe-caninput-pre", [slotData])
 	var _result
 	var _repl = _lib._get_hooks("recipe-caninput")
@@ -134,6 +140,7 @@ func CanComplete():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-cancomplete-pre", [])
 	var _repl = _lib._get_hooks("recipe-cancomplete")
 	if _repl.size() > 0:
@@ -154,6 +161,7 @@ func ResetInput():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-resetinput-pre", [])
 	var _repl = _lib._get_hooks("recipe-resetinput")
 	if _repl.size() > 0:
@@ -174,6 +182,7 @@ func AddInputItem(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-addinputitem-pre", [slotData])
 	var _repl = _lib._get_hooks("recipe-addinputitem")
 	if _repl.size() > 0:
@@ -194,6 +203,7 @@ func RemoveInputItem(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-removeinputitem-pre", [slotData])
 	var _repl = _lib._get_hooks("recipe-removeinputitem")
 	if _repl.size() > 0:
@@ -214,6 +224,7 @@ func SetProximity():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-setproximity-pre", [])
 	var _repl = _lib._get_hooks("recipe-setproximity")
 	if _repl.size() > 0:
@@ -234,6 +245,7 @@ func UpdateProximity():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-updateproximity-pre", [])
 	var _repl = _lib._get_hooks("recipe-updateproximity")
 	if _repl.size() > 0:
@@ -254,6 +266,7 @@ func _on_show_toggled(toggled_on):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-_on_show_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("recipe-_on_show_toggled")
 	if _repl.size() > 0:
@@ -274,6 +287,7 @@ func Collapse():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-collapse-pre", [])
 	var _repl = _lib._get_hooks("recipe-collapse")
 	if _repl.size() > 0:
@@ -294,6 +308,7 @@ func Expand():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-expand-pre", [])
 	var _repl = _lib._get_hooks("recipe-expand")
 	if _repl.size() > 0:
@@ -314,6 +329,7 @@ func Default():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-default-pre", [])
 	var _repl = _lib._get_hooks("recipe-default")
 	if _repl.size() > 0:
@@ -334,6 +350,7 @@ func Selected():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-selected-pre", [])
 	var _repl = _lib._get_hooks("recipe-selected")
 	if _repl.size() > 0:
@@ -354,6 +371,7 @@ func Active():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-active-pre", [])
 	var _repl = _lib._get_hooks("recipe-active")
 	if _repl.size() > 0:
@@ -374,6 +392,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("recipe-playclick-pre", [])
 	var _repl = _lib._get_hooks("recipe-playclick")
 	if _repl.size() > 0:

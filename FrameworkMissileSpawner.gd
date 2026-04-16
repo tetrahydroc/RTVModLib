@@ -5,6 +5,7 @@ func _process(delta: float):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("missilespawner-_process-pre", [delta])
 	var _repl = _lib._get_hooks("missilespawner-_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecutePrepareMissiles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("missilespawner-executepreparemissiles-pre", [_value])
 	var _repl = _lib._get_hooks("missilespawner-executepreparemissiles")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func ExecuteLaunchMissiles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("missilespawner-executelaunchmissiles-pre", [_value])
 	var _repl = _lib._get_hooks("missilespawner-executelaunchmissiles")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func ExecuteClearMissiles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("missilespawner-executeclearmissiles-pre", [_value])
 	var _repl = _lib._get_hooks("missilespawner-executeclearmissiles")
 	if _repl.size() > 0:

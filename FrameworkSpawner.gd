@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-_ready-pre", [])
 	var _repl = _lib._get_hooks("spawner-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func ExecuteGenerate(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-executegenerate-pre", [_value])
 	var _repl = _lib._get_hooks("spawner-executegenerate")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("spawner-executeclear")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ExecuteFinalizeTrees(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-executefinalizetrees-pre", [_value])
 	var _repl = _lib._get_hooks("spawner-executefinalizetrees")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ExecuteTreeRecovery(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-executetreerecovery-pre", [_value])
 	var _repl = _lib._get_hooks("spawner-executetreerecovery")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func ExecuteTreeReduction(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-executetreereduction-pre", [_value])
 	var _repl = _lib._get_hooks("spawner-executetreereduction")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func SpawnScene(surfaceTransform: Transform3D, sceneData: SpawnerSceneData):
 	if !_lib:
 		super(surfaceTransform, sceneData)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-spawnscene-pre", [surfaceTransform, sceneData])
 	var _repl = _lib._get_hooks("spawner-spawnscene")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func CreateChunkNode(key: String, chunkDict: Dictionary, chunkData: SpawnerChunk
 	if !_lib:
 		super(key, chunkDict, chunkData)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-createchunknode-pre", [key, chunkDict, chunkData])
 	var _repl = _lib._get_hooks("spawner-createchunknode")
 	if _repl.size() > 0:
@@ -170,6 +178,7 @@ func BuildMultimesh(transforms: Array, meshResource: Mesh, origin: Vector3, mate
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(transforms, meshResource, origin, material)
+	_lib._caller = self
 	_lib._dispatch("spawner-buildmultimesh-pre", [transforms, meshResource, origin, material])
 	var _result
 	var _repl = _lib._get_hooks("spawner-buildmultimesh")
@@ -194,6 +203,7 @@ func CreateCollider(parent: Node3D, transforms: Array, meshResource: Mesh, colli
 	if !_lib:
 		super(parent, transforms, meshResource, colliderName, layer, surfaceName)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-createcollider-pre", [parent, transforms, meshResource, colliderName, layer, surfaceName])
 	var _repl = _lib._get_hooks("spawner-createcollider")
 	if _repl.size() > 0:
@@ -214,6 +224,7 @@ func CreateMergedMeshMixed(parent: Node3D, transforms: Array, meshResources: Arr
 	if !_lib:
 		super(parent, transforms, meshResources, material, meshName)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-createmergedmeshmixed-pre", [parent, transforms, meshResources, material, meshName])
 	var _repl = _lib._get_hooks("spawner-createmergedmeshmixed")
 	if _repl.size() > 0:
@@ -234,6 +245,7 @@ func CreateMergedColliderMixed(parent: Node3D, transforms: Array, meshResources:
 	if !_lib:
 		super(parent, transforms, meshResources, colliderName, layer, surfaceName)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-createmergedcollidermixed-pre", [parent, transforms, meshResources, colliderName, layer, surfaceName])
 	var _repl = _lib._get_hooks("spawner-createmergedcollidermixed")
 	if _repl.size() > 0:
@@ -253,6 +265,7 @@ func PerimeterCheck(hit: Dictionary, spaceState: PhysicsDirectSpaceState3D):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(hit, spaceState)
+	_lib._caller = self
 	_lib._dispatch("spawner-perimetercheck-pre", [hit, spaceState])
 	var _result
 	var _repl = _lib._get_hooks("spawner-perimetercheck")
@@ -277,6 +290,7 @@ func GetBlockerMasks(groupName: String, blockerList: Array[Rect2]):
 	if !_lib:
 		super(groupName, blockerList)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-getblockermasks-pre", [groupName, blockerList])
 	var _repl = _lib._get_hooks("spawner-getblockermasks")
 	if _repl.size() > 0:
@@ -296,6 +310,7 @@ func PoisonFilter(candidates: Array, minDist: float):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(candidates, minDist)
+	_lib._caller = self
 	_lib._dispatch("spawner-poisonfilter-pre", [candidates, minDist])
 	var _result
 	var _repl = _lib._get_hooks("spawner-poisonfilter")
@@ -319,6 +334,7 @@ func RandomBarycentric(v0: Vector3, v1: Vector3, v2: Vector3):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(v0, v1, v2)
+	_lib._caller = self
 	_lib._dispatch("spawner-randombarycentric-pre", [v0, v1, v2])
 	var _result
 	var _repl = _lib._get_hooks("spawner-randombarycentric")
@@ -342,6 +358,7 @@ func GetSurfaceTransform(pos: Vector3, normal: Vector3):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(pos, normal)
+	_lib._caller = self
 	_lib._dispatch("spawner-getsurfacetransform-pre", [pos, normal])
 	var _result
 	var _repl = _lib._get_hooks("spawner-getsurfacetransform")
@@ -366,6 +383,7 @@ func ProcessMultimeshData(pos: Vector3, surfaceTransform: Transform3D, dataMap: 
 	if !_lib:
 		super(pos, surfaceTransform, dataMap, chunkSize)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-processmultimeshdata-pre", [pos, surfaceTransform, dataMap, chunkSize])
 	var _repl = _lib._get_hooks("spawner-processmultimeshdata")
 	if _repl.size() > 0:
@@ -385,6 +403,7 @@ func RealignToNormal(surfaceTransform: Transform3D, normal: Vector3):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(surfaceTransform, normal)
+	_lib._caller = self
 	_lib._dispatch("spawner-realigntonormal-pre", [surfaceTransform, normal])
 	var _result
 	var _repl = _lib._get_hooks("spawner-realigntonormal")
@@ -409,6 +428,7 @@ func FoldHierarchy(node: Node):
 	if !_lib:
 		super(node)
 		return
+	_lib._caller = self
 	_lib._dispatch("spawner-foldhierarchy-pre", [node])
 	var _repl = _lib._get_hooks("spawner-foldhierarchy")
 	if _repl.size() > 0:

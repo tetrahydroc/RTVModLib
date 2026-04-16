@@ -5,6 +5,7 @@ func ExecuteGeneratePoles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("field-executegeneratepoles-pre", [_value])
 	var _repl = _lib._get_hooks("field-executegeneratepoles")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecuteGenerateRibbon(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("field-executegenerateribbon-pre", [_value])
 	var _repl = _lib._get_hooks("field-executegenerateribbon")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func ExecuteGenerateCollider(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("field-executegeneratecollider-pre", [_value])
 	var _repl = _lib._get_hooks("field-executegeneratecollider")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func ExecuteMergePoles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("field-executemergepoles-pre", [_value])
 	var _repl = _lib._get_hooks("field-executemergepoles")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("field-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("field-executeclear")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func FoldHierarchy(node: Node):
 	if !_lib:
 		super(node)
 		return
+	_lib._caller = self
 	_lib._dispatch("field-foldhierarchy-pre", [node])
 	var _repl = _lib._get_hooks("field-foldhierarchy")
 	if _repl.size() > 0:

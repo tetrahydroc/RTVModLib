@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-_ready-pre", [])
 	var _repl = _lib._get_hooks("fire-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-interact-pre", [])
 	var _repl = _lib._get_hooks("fire-interact")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Activate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-activate-pre", [])
 	var _repl = _lib._get_hooks("fire-activate")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Deactivate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-deactivate-pre", [])
 	var _repl = _lib._get_hooks("fire-deactivate")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("fire-updatetooltip")
 	if _repl.size() > 0:
@@ -110,6 +115,7 @@ func MatchCheck():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("fire-matchcheck-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("fire-matchcheck")
@@ -134,6 +140,7 @@ func ConsumeMatch():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-consumematch-pre", [])
 	var _repl = _lib._get_hooks("fire-consumematch")
 	if _repl.size() > 0:
@@ -154,6 +161,7 @@ func IgniteAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-igniteaudio-pre", [])
 	var _repl = _lib._get_hooks("fire-igniteaudio")
 	if _repl.size() > 0:
@@ -174,6 +182,7 @@ func ExtinguishAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fire-extinguishaudio-pre", [])
 	var _repl = _lib._get_hooks("fire-extinguishaudio")
 	if _repl.size() > 0:

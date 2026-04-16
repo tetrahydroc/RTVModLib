@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("ragdoll-_ready-pre", [])
 	var _repl = _lib._get_hooks("ragdoll-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func DeactivateBones():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ragdoll-deactivatebones-pre", [])
 	var _repl = _lib._get_hooks("ragdoll-deactivatebones")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ActivateBones():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ragdoll-activatebones-pre", [])
 	var _repl = _lib._get_hooks("ragdoll-activatebones")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ragdoll-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("ragdoll-_physics_process")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Activate(direction, force):
 	if !_lib:
 		super(direction, force)
 		return
+	_lib._caller = self
 	_lib._dispatch("ragdoll-activate-pre", [direction, force])
 	var _repl = _lib._get_hooks("ragdoll-activate")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func PlayRagdoll():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ragdoll-playragdoll-pre", [])
 	var _repl = _lib._get_hooks("ragdoll-playragdoll")
 	if _repl.size() > 0:

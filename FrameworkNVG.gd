@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-_ready-pre", [])
 	var _repl = _lib._get_hooks("nvg-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("nvg-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Activate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-activate-pre", [])
 	var _repl = _lib._get_hooks("nvg-activate")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Deactivate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-deactivate-pre", [])
 	var _repl = _lib._get_hooks("nvg-deactivate")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ResetCheck():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-resetcheck-pre", [])
 	var _repl = _lib._get_hooks("nvg-resetcheck")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Consumption(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-consumption-pre", [delta])
 	var _repl = _lib._get_hooks("nvg-consumption")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func NVGAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-nvgaudio-pre", [])
 	var _repl = _lib._get_hooks("nvg-nvgaudio")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Load():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("nvg-load-pre", [])
 	var _repl = _lib._get_hooks("nvg-load")
 	if _repl.size() > 0:

@@ -5,6 +5,7 @@ func _process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("spinner-_process-pre", [delta])
 	var _repl = _lib._get_hooks("spinner-_process")
 	if _repl.size() > 0:

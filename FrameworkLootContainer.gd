@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-_ready-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func ClearBuckets():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-clearbuckets-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-clearbuckets")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func FillBuckets():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-fillbuckets-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-fillbuckets")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func FillBucketsCustom():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-fillbucketscustom-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-fillbucketscustom")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func GenerateLoot():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-generateloot-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-generateloot")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-interact-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-interact")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-updatetooltip")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func CreateLoot(item: ItemData):
 	if !_lib:
 		super(item)
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-createloot-pre", [item])
 	var _repl = _lib._get_hooks("lootcontainer-createloot")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func Storage(containerGrid: Grid):
 	if !_lib:
 		super(containerGrid)
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-storage-pre", [containerGrid])
 	var _repl = _lib._get_hooks("lootcontainer-storage")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func ContainerAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootcontainer-containeraudio-pre", [])
 	var _repl = _lib._get_hooks("lootcontainer-containeraudio")
 	if _repl.size() > 0:

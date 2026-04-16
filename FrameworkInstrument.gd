@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("instrument-_ready-pre", [])
 	var _repl = _lib._get_hooks("instrument-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("instrument-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("instrument-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Handling(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("instrument-handling-pre", [delta])
 	var _repl = _lib._get_hooks("instrument-handling")
 	if _repl.size() > 0:
@@ -70,6 +73,7 @@ func GetNextTrack():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("instrument-getnexttrack-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("instrument-getnexttrack")

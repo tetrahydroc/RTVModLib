@@ -5,6 +5,7 @@ func _input(_event):
 	if !_lib:
 		super(_event)
 		return
+	_lib._caller = self
 	_lib._dispatch("laser-_input-pre", [_event])
 	var _repl = _lib._get_hooks("laser-_input")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("laser-_process-pre", [_delta])
 	var _repl = _lib._get_hooks("laser-_process")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func PlayLaser():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("laser-playlaser-pre", [])
 	var _repl = _lib._get_hooks("laser-playlaser")
 	if _repl.size() > 0:

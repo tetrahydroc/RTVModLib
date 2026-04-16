@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-_ready-pre", [])
 	var _repl = _lib._get_hooks("ai-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Initialize():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-initialize-pre", [])
 	var _repl = _lib._get_hooks("ai-initialize")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("ai-_physics_process")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ActivateWanderer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activatewanderer-pre", [])
 	var _repl = _lib._get_hooks("ai-activatewanderer")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ActivateHider():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activatehider-pre", [])
 	var _repl = _lib._get_hooks("ai-activatehider")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func ActivateGuard():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activateguard-pre", [])
 	var _repl = _lib._get_hooks("ai-activateguard")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ActivateMinion():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activateminion-pre", [])
 	var _repl = _lib._get_hooks("ai-activateminion")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func ActivateBoss():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activateboss-pre", [])
 	var _repl = _lib._get_hooks("ai-activateboss")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func Activate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activate-pre", [])
 	var _repl = _lib._get_hooks("ai-activate")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func Pause():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-pause-pre", [])
 	var _repl = _lib._get_hooks("ai-pause")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func Animate(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-animate-pre", [delta])
 	var _repl = _lib._get_hooks("ai-animate")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func SelectWeapon():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-selectweapon-pre", [])
 	var _repl = _lib._get_hooks("ai-selectweapon")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func SelectBackpack():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-selectbackpack-pre", [])
 	var _repl = _lib._get_hooks("ai-selectbackpack")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func SelectClothing():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-selectclothing-pre", [])
 	var _repl = _lib._get_hooks("ai-selectclothing")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func DeactivateEquipment():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-deactivateequipment-pre", [])
 	var _repl = _lib._get_hooks("ai-deactivateequipment")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func NearbyPoints(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-nearbypoints-pre", [delta])
 	var _repl = _lib._get_hooks("ai-nearbypoints")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func Parameters(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-parameters-pre", [delta])
 	var _repl = _lib._get_hooks("ai-parameters")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func Sensor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-sensor-pre", [delta])
 	var _repl = _lib._get_hooks("ai-sensor")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func LOSCheck(target: Vector3):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-loscheck-pre", [target])
 	var _repl = _lib._get_hooks("ai-loscheck")
 	if _repl.size() > 0:
@@ -391,6 +410,7 @@ func Hearing():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-hearing-pre", [])
 	var _repl = _lib._get_hooks("ai-hearing")
 	if _repl.size() > 0:
@@ -411,6 +431,7 @@ func FireDetection(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-firedetection-pre", [delta])
 	var _repl = _lib._get_hooks("ai-firedetection")
 	if _repl.size() > 0:
@@ -431,6 +452,7 @@ func Interactor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-interactor-pre", [delta])
 	var _repl = _lib._get_hooks("ai-interactor")
 	if _repl.size() > 0:
@@ -451,6 +473,7 @@ func Movement(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-movement-pre", [delta])
 	var _repl = _lib._get_hooks("ai-movement")
 	if _repl.size() > 0:
@@ -471,6 +494,7 @@ func Rotation(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-rotation-pre", [delta])
 	var _repl = _lib._get_hooks("ai-rotation")
 	if _repl.size() > 0:
@@ -491,6 +515,7 @@ func Poles():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-poles-pre", [])
 	var _repl = _lib._get_hooks("ai-poles")
 	if _repl.size() > 0:
@@ -511,6 +536,7 @@ func Spine(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-spine-pre", [delta])
 	var _repl = _lib._get_hooks("ai-spine")
 	if _repl.size() > 0:
@@ -531,6 +557,7 @@ func Aim(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-aim-pre", [delta])
 	var _repl = _lib._get_hooks("ai-aim")
 	if _repl.size() > 0:
@@ -551,6 +578,7 @@ func ChangeState(state):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-changestate-pre", [state])
 	var _repl = _lib._get_hooks("ai-changestate")
 	if _repl.size() > 0:
@@ -571,6 +599,7 @@ func States(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-states-pre", [delta])
 	var _repl = _lib._get_hooks("ai-states")
 	if _repl.size() > 0:
@@ -591,6 +620,7 @@ func Decision():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-decision-pre", [])
 	var _repl = _lib._get_hooks("ai-decision")
 	if _repl.size() > 0:
@@ -611,6 +641,7 @@ func Guard(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-guard-pre", [delta])
 	var _repl = _lib._get_hooks("ai-guard")
 	if _repl.size() > 0:
@@ -631,6 +662,7 @@ func Patrol(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-patrol-pre", [_delta])
 	var _repl = _lib._get_hooks("ai-patrol")
 	if _repl.size() > 0:
@@ -651,6 +683,7 @@ func Defend(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-defend-pre", [delta])
 	var _repl = _lib._get_hooks("ai-defend")
 	if _repl.size() > 0:
@@ -671,6 +704,7 @@ func Ambush(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-ambush-pre", [delta])
 	var _repl = _lib._get_hooks("ai-ambush")
 	if _repl.size() > 0:
@@ -691,6 +725,7 @@ func Hide(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-hide-pre", [_delta])
 	var _repl = _lib._get_hooks("ai-hide")
 	if _repl.size() > 0:
@@ -711,6 +746,7 @@ func Cover(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-cover-pre", [_delta])
 	var _repl = _lib._get_hooks("ai-cover")
 	if _repl.size() > 0:
@@ -731,6 +767,7 @@ func Vantage(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-vantage-pre", [_delta])
 	var _repl = _lib._get_hooks("ai-vantage")
 	if _repl.size() > 0:
@@ -751,6 +788,7 @@ func Wander(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-wander-pre", [_delta])
 	var _repl = _lib._get_hooks("ai-wander")
 	if _repl.size() > 0:
@@ -771,6 +809,7 @@ func Combat(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-combat-pre", [delta])
 	var _repl = _lib._get_hooks("ai-combat")
 	if _repl.size() > 0:
@@ -791,6 +830,7 @@ func Shift(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-shift-pre", [delta])
 	var _repl = _lib._get_hooks("ai-shift")
 	if _repl.size() > 0:
@@ -811,6 +851,7 @@ func Hunt(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-hunt-pre", [delta])
 	var _repl = _lib._get_hooks("ai-hunt")
 	if _repl.size() > 0:
@@ -831,6 +872,7 @@ func Attack(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-attack-pre", [delta])
 	var _repl = _lib._get_hooks("ai-attack")
 	if _repl.size() > 0:
@@ -851,6 +893,7 @@ func Return():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-return-pre", [])
 	var _repl = _lib._get_hooks("ai-return")
 	if _repl.size() > 0:
@@ -871,6 +914,7 @@ func Fire(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-fire-pre", [delta])
 	var _repl = _lib._get_hooks("ai-fire")
 	if _repl.size() > 0:
@@ -891,6 +935,7 @@ func Selector(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-selector-pre", [delta])
 	var _repl = _lib._get_hooks("ai-selector")
 	if _repl.size() > 0:
@@ -911,6 +956,7 @@ func Raycast():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-raycast-pre", [])
 	var _repl = _lib._get_hooks("ai-raycast")
 	if _repl.size() > 0:
@@ -931,6 +977,7 @@ func FireFrequency():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-firefrequency-pre", [])
 	var _repl = _lib._get_hooks("ai-firefrequency")
 	if _repl.size() > 0:
@@ -950,6 +997,7 @@ func FireAccuracy():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-fireaccuracy-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-fireaccuracy")
@@ -974,6 +1022,7 @@ func BulletDecal(hitCollider, hitPoint, hitNormal, hitSurface):
 	if !_lib:
 		super(hitCollider, hitPoint, hitNormal, hitSurface)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-bulletdecal-pre", [hitCollider, hitPoint, hitNormal, hitSurface])
 	var _repl = _lib._get_hooks("ai-bulletdecal")
 	if _repl.size() > 0:
@@ -994,6 +1043,7 @@ func MuzzleVFX():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-muzzlevfx-pre", [])
 	var _repl = _lib._get_hooks("ai-muzzlevfx")
 	if _repl.size() > 0:
@@ -1014,6 +1064,7 @@ func WeaponDamage(hitbox: String, damage: float):
 	if !_lib:
 		super(hitbox, damage)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-weapondamage-pre", [hitbox, damage])
 	var _repl = _lib._get_hooks("ai-weapondamage")
 	if _repl.size() > 0:
@@ -1034,6 +1085,7 @@ func ExplosionDamage(direction):
 	if !_lib:
 		super(direction)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-explosiondamage-pre", [direction])
 	var _repl = _lib._get_hooks("ai-explosiondamage")
 	if _repl.size() > 0:
@@ -1054,6 +1106,7 @@ func Death(direction, force):
 	if !_lib:
 		super(direction, force)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-death-pre", [direction, force])
 	var _repl = _lib._get_hooks("ai-death")
 	if _repl.size() > 0:
@@ -1074,6 +1127,7 @@ func ActivateContainer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-activatecontainer-pre", [])
 	var _repl = _lib._get_hooks("ai-activatecontainer")
 	if _repl.size() > 0:
@@ -1094,6 +1148,7 @@ func DeactivateContainer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-deactivatecontainer-pre", [])
 	var _repl = _lib._get_hooks("ai-deactivatecontainer")
 	if _repl.size() > 0:
@@ -1114,6 +1169,7 @@ func Voices(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-voices-pre", [delta])
 	var _repl = _lib._get_hooks("ai-voices")
 	if _repl.size() > 0:
@@ -1133,6 +1189,7 @@ func GetPatrolPoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getpatrolpoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getpatrolpoint")
@@ -1156,6 +1213,7 @@ func GetHidePoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-gethidepoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-gethidepoint")
@@ -1179,6 +1237,7 @@ func GetVantagePoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getvantagepoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getvantagepoint")
@@ -1202,6 +1261,7 @@ func GetCoverPoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getcoverpoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getcoverpoint")
@@ -1225,6 +1285,7 @@ func GetWanderWaypoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getwanderwaypoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getwanderwaypoint")
@@ -1248,6 +1309,7 @@ func GetCombatWaypoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getcombatwaypoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getcombatwaypoint")
@@ -1271,6 +1333,7 @@ func GetShiftWaypoint():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getshiftwaypoint-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getshiftwaypoint")
@@ -1295,6 +1358,7 @@ func GetHuntWaypoint():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-gethuntwaypoint-pre", [])
 	var _repl = _lib._get_hooks("ai-gethuntwaypoint")
 	if _repl.size() > 0:
@@ -1315,6 +1379,7 @@ func GetAttackWaypoint():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-getattackwaypoint-pre", [])
 	var _repl = _lib._get_hooks("ai-getattackwaypoint")
 	if _repl.size() > 0:
@@ -1335,6 +1400,7 @@ func MoveToPoint(origin: Vector3):
 	if !_lib:
 		super(origin)
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-movetopoint-pre", [origin])
 	var _repl = _lib._get_hooks("ai-movetopoint")
 	if _repl.size() > 0:
@@ -1354,6 +1420,7 @@ func GetNearestPole():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("ai-getnearestpole-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("ai-getnearestpole")
@@ -1378,6 +1445,7 @@ func ShowGizmos():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-showgizmos-pre", [])
 	var _repl = _lib._get_hooks("ai-showgizmos")
 	if _repl.size() > 0:
@@ -1398,6 +1466,7 @@ func HideGizmos():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-hidegizmos-pre", [])
 	var _repl = _lib._get_hooks("ai-hidegizmos")
 	if _repl.size() > 0:
@@ -1418,6 +1487,7 @@ func ResetLKL():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-resetlkl-pre", [])
 	var _repl = _lib._get_hooks("ai-resetlkl")
 	if _repl.size() > 0:
@@ -1438,6 +1508,7 @@ func ResetAnimator():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-resetanimator-pre", [])
 	var _repl = _lib._get_hooks("ai-resetanimator")
 	if _repl.size() > 0:
@@ -1458,6 +1529,7 @@ func PlayIdle():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playidle-pre", [])
 	var _repl = _lib._get_hooks("ai-playidle")
 	if _repl.size() > 0:
@@ -1478,6 +1550,7 @@ func PlayCombat():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playcombat-pre", [])
 	var _repl = _lib._get_hooks("ai-playcombat")
 	if _repl.size() > 0:
@@ -1498,6 +1571,7 @@ func PlayDamage():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playdamage-pre", [])
 	var _repl = _lib._get_hooks("ai-playdamage")
 	if _repl.size() > 0:
@@ -1518,6 +1592,7 @@ func PlayDeath():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playdeath-pre", [])
 	var _repl = _lib._get_hooks("ai-playdeath")
 	if _repl.size() > 0:
@@ -1538,6 +1613,7 @@ func PlayFootstep():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playfootstep-pre", [])
 	var _repl = _lib._get_hooks("ai-playfootstep")
 	if _repl.size() > 0:
@@ -1558,6 +1634,7 @@ func PlayFire():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playfire-pre", [])
 	var _repl = _lib._get_hooks("ai-playfire")
 	if _repl.size() > 0:
@@ -1578,6 +1655,7 @@ func PlayTail():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playtail-pre", [])
 	var _repl = _lib._get_hooks("ai-playtail")
 	if _repl.size() > 0:
@@ -1598,6 +1676,7 @@ func PlayCrack():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playcrack-pre", [])
 	var _repl = _lib._get_hooks("ai-playcrack")
 	if _repl.size() > 0:
@@ -1618,6 +1697,7 @@ func PlayFlyby():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("ai-playflyby-pre", [])
 	var _repl = _lib._get_hooks("ai-playflyby")
 	if _repl.size() > 0:

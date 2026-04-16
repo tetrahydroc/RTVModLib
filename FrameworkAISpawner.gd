@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-_ready-pre", [])
 	var _repl = _lib._get_hooks("aispawner-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("aispawner-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func CreatePools():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-createpools-pre", [])
 	var _repl = _lib._get_hooks("aispawner-createpools")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func SpawnWanderer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-spawnwanderer-pre", [])
 	var _repl = _lib._get_hooks("aispawner-spawnwanderer")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func SpawnGuard():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-spawnguard-pre", [])
 	var _repl = _lib._get_hooks("aispawner-spawnguard")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func SpawnHider():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-spawnhider-pre", [])
 	var _repl = _lib._get_hooks("aispawner-spawnhider")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func SpawnMinion(spawnPosition):
 	if !_lib:
 		super(spawnPosition)
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-spawnminion-pre", [spawnPosition])
 	var _repl = _lib._get_hooks("aispawner-spawnminion")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func SpawnBoss(spawnPosition):
 	if !_lib:
 		super(spawnPosition)
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-spawnboss-pre", [spawnPosition])
 	var _repl = _lib._get_hooks("aispawner-spawnboss")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func CreateHotspot(location: Vector3, relay: bool):
 	if !_lib:
 		super(location, relay)
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-createhotspot-pre", [location, relay])
 	var _repl = _lib._get_hooks("aispawner-createhotspot")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func DestroyAllAI():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-destroyallai-pre", [])
 	var _repl = _lib._get_hooks("aispawner-destroyallai")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func GetPoints():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-getpoints-pre", [])
 	var _repl = _lib._get_hooks("aispawner-getpoints")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func ShowPoints():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-showpoints-pre", [])
 	var _repl = _lib._get_hooks("aispawner-showpoints")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func HidePoints():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-hidepoints-pre", [])
 	var _repl = _lib._get_hooks("aispawner-hidepoints")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func ShowGizmos():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-showgizmos-pre", [])
 	var _repl = _lib._get_hooks("aispawner-showgizmos")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func HideGizmos():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-hidegizmos-pre", [])
 	var _repl = _lib._get_hooks("aispawner-hidegizmos")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func ForceState(state):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-forcestate-pre", [state])
 	var _repl = _lib._get_hooks("aispawner-forcestate")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func AIHide():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-aihide-pre", [])
 	var _repl = _lib._get_hooks("aispawner-aihide")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func AIShow():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("aispawner-aishow-pre", [])
 	var _repl = _lib._get_hooks("aispawner-aishow")
 	if _repl.size() > 0:

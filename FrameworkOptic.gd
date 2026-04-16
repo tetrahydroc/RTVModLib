@@ -5,6 +5,7 @@ func ExecuteCalculate(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("optic-executecalculate-pre", [_value])
 	var _repl = _lib._get_hooks("optic-executecalculate")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("optic-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("optic-_physics_process")
 	if _repl.size() > 0:

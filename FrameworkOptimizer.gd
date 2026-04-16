@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("optimizer-_ready-pre", [])
 	var _repl = _lib._get_hooks("optimizer-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func ExecuteSort(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("optimizer-executesort-pre", [_value])
 	var _repl = _lib._get_hooks("optimizer-executesort")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ExecuteReindex(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("optimizer-executereindex-pre", [_value])
 	var _repl = _lib._get_hooks("optimizer-executereindex")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ExecuteMerge(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("optimizer-executemerge-pre", [_value])
 	var _repl = _lib._get_hooks("optimizer-executemerge")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func FoldHierarchy(node: Node):
 	if !_lib:
 		super(node)
 		return
+	_lib._caller = self
 	_lib._dispatch("optimizer-foldhierarchy-pre", [node])
 	var _repl = _lib._get_hooks("optimizer-foldhierarchy")
 	if _repl.size() > 0:

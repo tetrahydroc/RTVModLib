@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("grid-_ready-pre", [])
 	var _repl = _lib._get_hooks("grid-_ready")
 	if _repl.size() > 0:
@@ -30,6 +31,7 @@ func Spawn(item):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(item)
+	_lib._caller = self
 	_lib._dispatch("grid-spawn-pre", [item])
 	var _result
 	var _repl = _lib._get_hooks("grid-spawn")
@@ -53,6 +55,7 @@ func Place(item):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(item)
+	_lib._caller = self
 	_lib._dispatch("grid-place-pre", [item])
 	var _result
 	var _repl = _lib._get_hooks("grid-place")
@@ -76,6 +79,7 @@ func Pick(item):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(item)
+	_lib._caller = self
 	_lib._dispatch("grid-pick-pre", [item])
 	var _result
 	var _repl = _lib._get_hooks("grid-pick")
@@ -100,6 +104,7 @@ func CreateGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grid-creategrid-pre", [])
 	var _repl = _lib._get_hooks("grid-creategrid")
 	if _repl.size() > 0:
@@ -120,6 +125,7 @@ func CreateContainerGrid(containerSize: Vector2):
 	if !_lib:
 		super(containerSize)
 		return
+	_lib._caller = self
 	_lib._dispatch("grid-createcontainergrid-pre", [containerSize])
 	var _repl = _lib._get_hooks("grid-createcontainergrid")
 	if _repl.size() > 0:
@@ -140,6 +146,7 @@ func ClearGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grid-cleargrid-pre", [])
 	var _repl = _lib._get_hooks("grid-cleargrid")
 	if _repl.size() > 0:
@@ -159,6 +166,7 @@ func GetGridSize(item):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(item)
+	_lib._caller = self
 	_lib._dispatch("grid-getgridsize-pre", [item])
 	var _result
 	var _repl = _lib._get_hooks("grid-getgridsize")
@@ -182,6 +190,7 @@ func GetGridPosition(itemPosition):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(itemPosition)
+	_lib._caller = self
 	_lib._dispatch("grid-getgridposition-pre", [itemPosition])
 	var _result
 	var _repl = _lib._get_hooks("grid-getgridposition")
@@ -205,6 +214,7 @@ func CheckGridSpace(x, y, w, h):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(x, y, w, h)
+	_lib._caller = self
 	_lib._dispatch("grid-checkgridspace-pre", [x, y, w, h])
 	var _result
 	var _repl = _lib._get_hooks("grid-checkgridspace")
@@ -229,6 +239,7 @@ func UpdateGrid(x, y, w, h, state):
 	if !_lib:
 		super(x, y, w, h, state)
 		return
+	_lib._caller = self
 	_lib._dispatch("grid-updategrid-pre", [x, y, w, h, state])
 	var _repl = _lib._get_hooks("grid-updategrid")
 	if _repl.size() > 0:

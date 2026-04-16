@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-_ready-pre", [])
 	var _repl = _lib._get_hooks("hud-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("hud-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Transition(transitionData):
 	if !_lib:
 		super(transitionData)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-transition-pre", [transitionData])
 	var _repl = _lib._get_hooks("hud-transition")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ShowMap(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-showmap-pre", [state])
 	var _repl = _lib._get_hooks("hud-showmap")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ShowFPS(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-showfps-pre", [state])
 	var _repl = _lib._get_hooks("hud-showfps")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func ShowVitals(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-showvitals-pre", [state])
 	var _repl = _lib._get_hooks("hud-showvitals")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ShowMedical(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-showmedical-pre", [state])
 	var _repl = _lib._get_hooks("hud-showmedical")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func ShowPlacement(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-showplacement-pre", [state])
 	var _repl = _lib._get_hooks("hud-showplacement")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func ShowDecor(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("hud-showdecor-pre", [state])
 	var _repl = _lib._get_hooks("hud-showdecor")
 	if _repl.size() > 0:

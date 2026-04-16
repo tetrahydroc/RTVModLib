@@ -5,6 +5,7 @@ func _process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("flicker-_process-pre", [delta])
 	var _repl = _lib._get_hooks("flicker-_process")
 	if _repl.size() > 0:

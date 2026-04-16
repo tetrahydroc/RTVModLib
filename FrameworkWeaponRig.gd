@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-_ready-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-_input-pre", [event])
 	var _repl = _lib._get_hooks("weaponrig-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-_physics_process")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func _process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-_process-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-_process")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ADS(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-ads-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-ads")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func FireTimer(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-firetimer-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-firetimer")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Firemode():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-firemode-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-firemode")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func FireInput():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-fireinput-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-fireinput")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func FireEvent():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-fireevent-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-fireevent")
 	if _repl.size() > 0:
@@ -190,6 +199,7 @@ func Malfunction():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("weaponrig-malfunction-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("weaponrig-malfunction")
@@ -214,6 +224,7 @@ func FireImpulse(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-fireimpulse-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-fireimpulse")
 	if _repl.size() > 0:
@@ -234,6 +245,7 @@ func Raycast(spread: float):
 	if !_lib:
 		super(spread)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-raycast-pre", [spread])
 	var _repl = _lib._get_hooks("weaponrig-raycast")
 	if _repl.size() > 0:
@@ -254,6 +266,7 @@ func Reload():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-reload-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-reload")
 	if _repl.size() > 0:
@@ -274,6 +287,7 @@ func Magazine(attach: bool, animate: bool):
 	if !_lib:
 		super(attach, animate)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-magazine-pre", [attach, animate])
 	var _repl = _lib._get_hooks("weaponrig-magazine")
 	if _repl.size() > 0:
@@ -294,6 +308,7 @@ func Insert():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-insert-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-insert")
 	if _repl.size() > 0:
@@ -314,6 +329,7 @@ func AmmoCheck():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-ammocheck-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-ammocheck")
 	if _repl.size() > 0:
@@ -334,6 +350,7 @@ func Selector(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-selector-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-selector")
 	if _repl.size() > 0:
@@ -354,6 +371,7 @@ func Slide(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-slide-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-slide")
 	if _repl.size() > 0:
@@ -374,6 +392,7 @@ func Hammer(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-hammer-pre", [delta])
 	var _repl = _lib._get_hooks("weaponrig-hammer")
 	if _repl.size() > 0:
@@ -394,6 +413,7 @@ func HitEffect(hitCollider, hitPoint, hitNormal, hitSurface):
 	if !_lib:
 		super(hitCollider, hitPoint, hitNormal, hitSurface)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-hiteffect-pre", [hitCollider, hitPoint, hitNormal, hitSurface])
 	var _repl = _lib._get_hooks("weaponrig-hiteffect")
 	if _repl.size() > 0:
@@ -414,6 +434,7 @@ func BloodEffect(hitCollider, hitPoint, hitNormal):
 	if !_lib:
 		super(hitCollider, hitPoint, hitNormal)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-bloodeffect-pre", [hitCollider, hitPoint, hitNormal])
 	var _repl = _lib._get_hooks("weaponrig-bloodeffect")
 	if _repl.size() > 0:
@@ -434,6 +455,7 @@ func MuzzleEffect():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-muzzleeffect-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-muzzleeffect")
 	if _repl.size() > 0:
@@ -454,6 +476,7 @@ func CasingEject():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-casingeject-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-casingeject")
 	if _repl.size() > 0:
@@ -474,6 +497,7 @@ func HammerLock(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-hammerlock-pre", [state])
 	var _repl = _lib._get_hooks("weaponrig-hammerlock")
 	if _repl.size() > 0:
@@ -494,6 +518,7 @@ func SlideLock(state: bool):
 	if !_lib:
 		super(state)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-slidelock-pre", [state])
 	var _repl = _lib._get_hooks("weaponrig-slidelock")
 	if _repl.size() > 0:
@@ -514,6 +539,7 @@ func UpdateMuzzlePosition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-updatemuzzleposition-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-updatemuzzleposition")
 	if _repl.size() > 0:
@@ -534,6 +560,7 @@ func UpdateAimOffset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-updateaimoffset-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-updateaimoffset")
 	if _repl.size() > 0:
@@ -554,6 +581,7 @@ func ResetOpticPosition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-resetopticposition-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-resetopticposition")
 	if _repl.size() > 0:
@@ -574,6 +602,7 @@ func UpdateBullets():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-updatebullets-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-updatebullets")
 	if _repl.size() > 0:
@@ -594,6 +623,7 @@ func UpdateBulletsDetach(amount):
 	if !_lib:
 		super(amount)
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-updatebulletsdetach-pre", [amount])
 	var _repl = _lib._get_hooks("weaponrig-updatebulletsdetach")
 	if _repl.size() > 0:
@@ -614,6 +644,7 @@ func UpdateHUD():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-updatehud-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-updatehud")
 	if _repl.size() > 0:
@@ -633,6 +664,7 @@ func GetAnimationLength():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("weaponrig-getanimationlength-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("weaponrig-getanimationlength")
@@ -657,6 +689,7 @@ func PlayFire():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playfire-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playfire")
 	if _repl.size() > 0:
@@ -677,6 +710,7 @@ func PlayTail():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playtail-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playtail")
 	if _repl.size() > 0:
@@ -697,6 +731,7 @@ func PlayCharge():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playcharge-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playcharge")
 	if _repl.size() > 0:
@@ -717,6 +752,7 @@ func PlayMagazineAttachEmpty():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playmagazineattachempty-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playmagazineattachempty")
 	if _repl.size() > 0:
@@ -737,6 +773,7 @@ func PlayMagazineAttachTactical():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playmagazineattachtactical-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playmagazineattachtactical")
 	if _repl.size() > 0:
@@ -757,6 +794,7 @@ func PlayMagazineDetach():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playmagazinedetach-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playmagazinedetach")
 	if _repl.size() > 0:
@@ -777,6 +815,7 @@ func PlayAmmoCheck():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playammocheck-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playammocheck")
 	if _repl.size() > 0:
@@ -797,6 +836,7 @@ func PlayReloadEmpty():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playreloadempty-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playreloadempty")
 	if _repl.size() > 0:
@@ -817,6 +857,7 @@ func PlayReloadTactical():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playreloadtactical-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playreloadtactical")
 	if _repl.size() > 0:
@@ -837,6 +878,7 @@ func PlayInsertStart():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playinsertstart-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playinsertstart")
 	if _repl.size() > 0:
@@ -857,6 +899,7 @@ func PlayInsertEnd():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playinsertend-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playinsertend")
 	if _repl.size() > 0:
@@ -877,6 +920,7 @@ func PlayInsert():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playinsert-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playinsert")
 	if _repl.size() > 0:
@@ -897,6 +941,7 @@ func PlayReload():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playreload-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playreload")
 	if _repl.size() > 0:
@@ -917,6 +962,7 @@ func PlayMalfunction():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playmalfunction-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playmalfunction")
 	if _repl.size() > 0:
@@ -937,6 +983,7 @@ func PlayMalfunctionClear():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playmalfunctionclear-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playmalfunctionclear")
 	if _repl.size() > 0:
@@ -957,6 +1004,7 @@ func PlayInspectStart():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playinspectstart-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playinspectstart")
 	if _repl.size() > 0:
@@ -977,6 +1025,7 @@ func PlayInspectRotate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playinspectrotate-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playinspectrotate")
 	if _repl.size() > 0:
@@ -997,6 +1046,7 @@ func PlayInspectEnd():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playinspectend-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playinspectend")
 	if _repl.size() > 0:
@@ -1017,6 +1067,7 @@ func PlayFiremode():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playfiremode-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playfiremode")
 	if _repl.size() > 0:
@@ -1037,6 +1088,7 @@ func PlayRailMove():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playrailmove-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playrailmove")
 	if _repl.size() > 0:
@@ -1057,6 +1109,7 @@ func PlayCasingDrop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("weaponrig-playcasingdrop-pre", [])
 	var _repl = _lib._get_hooks("weaponrig-playcasingdrop")
 	if _repl.size() > 0:

@@ -5,6 +5,7 @@ func Initialize(track: TrackData, targetInterface):
 	if !_lib:
 		super(track, targetInterface)
 		return
+	_lib._caller = self
 	_lib._dispatch("track-initialize-pre", [track, targetInterface])
 	var _repl = _lib._get_hooks("track-initialize")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _on_play_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("track-_on_play_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("track-_on_play_toggled")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Default():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("track-default-pre", [])
 	var _repl = _lib._get_hooks("track-default")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func Active():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("track-active-pre", [])
 	var _repl = _lib._get_hooks("track-active")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("track-playclick-pre", [])
 	var _repl = _lib._get_hooks("track-playclick")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func PlayCasettePlay():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("track-playcasetteplay-pre", [])
 	var _repl = _lib._get_hooks("track-playcasetteplay")
 	if _repl.size() > 0:
@@ -125,6 +131,7 @@ func PlayCasetteStop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("track-playcasettestop-pre", [])
 	var _repl = _lib._get_hooks("track-playcasettestop")
 	if _repl.size() > 0:

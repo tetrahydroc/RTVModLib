@@ -5,6 +5,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("character-_physics_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Health(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-health-pre", [delta])
 	var _repl = _lib._get_hooks("character-health")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Energy(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-energy-pre", [delta])
 	var _repl = _lib._get_hooks("character-energy")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func Hydration(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-hydration-pre", [delta])
 	var _repl = _lib._get_hooks("character-hydration")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func Mental(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-mental-pre", [delta])
 	var _repl = _lib._get_hooks("character-mental")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func Temperature(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-temperature-pre", [delta])
 	var _repl = _lib._get_hooks("character-temperature")
 	if _repl.size() > 0:
@@ -125,6 +131,7 @@ func Cat(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-cat-pre", [delta])
 	var _repl = _lib._get_hooks("character-cat")
 	if _repl.size() > 0:
@@ -145,6 +152,7 @@ func Stamina(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-stamina-pre", [delta])
 	var _repl = _lib._get_hooks("character-stamina")
 	if _repl.size() > 0:
@@ -165,6 +173,7 @@ func Oxygen(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-oxygen-pre", [delta])
 	var _repl = _lib._get_hooks("character-oxygen")
 	if _repl.size() > 0:
@@ -185,6 +194,7 @@ func Clamp():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-clamp-pre", [])
 	var _repl = _lib._get_hooks("character-clamp")
 	if _repl.size() > 0:
@@ -205,6 +215,7 @@ func Consume(item: ItemData):
 	if !_lib:
 		super(item)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-consume-pre", [item])
 	var _repl = _lib._get_hooks("character-consume")
 	if _repl.size() > 0:
@@ -225,6 +236,7 @@ func WeaponDamage(damage: int, penetration: int):
 	if !_lib:
 		super(damage, penetration)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-weapondamage-pre", [damage, penetration])
 	var _repl = _lib._get_hooks("character-weapondamage")
 	if _repl.size() > 0:
@@ -245,6 +257,7 @@ func ExplosionDamage():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-explosiondamage-pre", [])
 	var _repl = _lib._get_hooks("character-explosiondamage")
 	if _repl.size() > 0:
@@ -265,6 +278,7 @@ func BurnDamage(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-burndamage-pre", [delta])
 	var _repl = _lib._get_hooks("character-burndamage")
 	if _repl.size() > 0:
@@ -285,6 +299,7 @@ func FallDamage(distance: float):
 	if !_lib:
 		super(distance)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-falldamage-pre", [distance])
 	var _repl = _lib._get_hooks("character-falldamage")
 	if _repl.size() > 0:
@@ -305,6 +320,7 @@ func Death():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-death-pre", [])
 	var _repl = _lib._get_hooks("character-death")
 	if _repl.size() > 0:
@@ -325,6 +341,7 @@ func Overweight(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-overweight-pre", [active])
 	var _repl = _lib._get_hooks("character-overweight")
 	if _repl.size() > 0:
@@ -345,6 +362,7 @@ func Starvation(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-starvation-pre", [active])
 	var _repl = _lib._get_hooks("character-starvation")
 	if _repl.size() > 0:
@@ -365,6 +383,7 @@ func Dehydration(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-dehydration-pre", [active])
 	var _repl = _lib._get_hooks("character-dehydration")
 	if _repl.size() > 0:
@@ -385,6 +404,7 @@ func Insanity(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-insanity-pre", [active])
 	var _repl = _lib._get_hooks("character-insanity")
 	if _repl.size() > 0:
@@ -405,6 +425,7 @@ func Frostbite(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-frostbite-pre", [active])
 	var _repl = _lib._get_hooks("character-frostbite")
 	if _repl.size() > 0:
@@ -425,6 +446,7 @@ func Bleeding(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-bleeding-pre", [active])
 	var _repl = _lib._get_hooks("character-bleeding")
 	if _repl.size() > 0:
@@ -445,6 +467,7 @@ func Fracture(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-fracture-pre", [active])
 	var _repl = _lib._get_hooks("character-fracture")
 	if _repl.size() > 0:
@@ -465,6 +488,7 @@ func Burn(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-burn-pre", [active])
 	var _repl = _lib._get_hooks("character-burn")
 	if _repl.size() > 0:
@@ -485,6 +509,7 @@ func Rupture(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-rupture-pre", [active])
 	var _repl = _lib._get_hooks("character-rupture")
 	if _repl.size() > 0:
@@ -505,6 +530,7 @@ func Headshot(active: bool):
 	if !_lib:
 		super(active)
 		return
+	_lib._caller = self
 	_lib._dispatch("character-headshot-pre", [active])
 	var _repl = _lib._get_hooks("character-headshot")
 	if _repl.size() > 0:
@@ -525,6 +551,7 @@ func PlayDamageAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playdamageaudio-pre", [])
 	var _repl = _lib._get_hooks("character-playdamageaudio")
 	if _repl.size() > 0:
@@ -545,6 +572,7 @@ func PlayImpactAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playimpactaudio-pre", [])
 	var _repl = _lib._get_hooks("character-playimpactaudio")
 	if _repl.size() > 0:
@@ -565,6 +593,7 @@ func PlayArmorAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playarmoraudio-pre", [])
 	var _repl = _lib._get_hooks("character-playarmoraudio")
 	if _repl.size() > 0:
@@ -585,6 +614,7 @@ func PlayDeathAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playdeathaudio-pre", [])
 	var _repl = _lib._get_hooks("character-playdeathaudio")
 	if _repl.size() > 0:
@@ -605,6 +635,7 @@ func PlayIndicator():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playindicator-pre", [])
 	var _repl = _lib._get_hooks("character-playindicator")
 	if _repl.size() > 0:
@@ -625,6 +656,7 @@ func PlayOverweight():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playoverweight-pre", [])
 	var _repl = _lib._get_hooks("character-playoverweight")
 	if _repl.size() > 0:
@@ -645,6 +677,7 @@ func PlayStarvation():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playstarvation-pre", [])
 	var _repl = _lib._get_hooks("character-playstarvation")
 	if _repl.size() > 0:
@@ -665,6 +698,7 @@ func PlayDehydration():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playdehydration-pre", [])
 	var _repl = _lib._get_hooks("character-playdehydration")
 	if _repl.size() > 0:
@@ -685,6 +719,7 @@ func PlayInsanity():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playinsanity-pre", [])
 	var _repl = _lib._get_hooks("character-playinsanity")
 	if _repl.size() > 0:
@@ -705,6 +740,7 @@ func PlayFrostbite():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playfrostbite-pre", [])
 	var _repl = _lib._get_hooks("character-playfrostbite")
 	if _repl.size() > 0:
@@ -725,6 +761,7 @@ func PlayBleeding():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playbleeding-pre", [])
 	var _repl = _lib._get_hooks("character-playbleeding")
 	if _repl.size() > 0:
@@ -745,6 +782,7 @@ func PlayFracture():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playfracture-pre", [])
 	var _repl = _lib._get_hooks("character-playfracture")
 	if _repl.size() > 0:
@@ -765,6 +803,7 @@ func PlayBurn():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playburn-pre", [])
 	var _repl = _lib._get_hooks("character-playburn")
 	if _repl.size() > 0:
@@ -785,6 +824,7 @@ func PlayRupture():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playrupture-pre", [])
 	var _repl = _lib._get_hooks("character-playrupture")
 	if _repl.size() > 0:
@@ -805,6 +845,7 @@ func PlayHeadshot():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("character-playheadshot-pre", [])
 	var _repl = _lib._get_hooks("character-playheadshot")
 	if _repl.size() > 0:

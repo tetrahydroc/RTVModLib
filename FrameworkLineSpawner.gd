@@ -5,6 +5,7 @@ func ExecuteGenerate(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("linespawner-executegenerate-pre", [_value])
 	var _repl = _lib._get_hooks("linespawner-executegenerate")
 	if _repl.size() > 0:
@@ -24,6 +25,7 @@ func RaycastCheck(rayStart: Vector3, rayEnd: Vector3):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(rayStart, rayEnd)
+	_lib._caller = self
 	_lib._dispatch("linespawner-raycastcheck-pre", [rayStart, rayEnd])
 	var _result
 	var _repl = _lib._get_hooks("linespawner-raycastcheck")
@@ -48,6 +50,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("linespawner-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("linespawner-executeclear")
 	if _repl.size() > 0:

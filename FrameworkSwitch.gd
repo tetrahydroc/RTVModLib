@@ -5,6 +5,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("switch-interact-pre", [])
 	var _repl = _lib._get_hooks("switch-interact")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Activate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("switch-activate-pre", [])
 	var _repl = _lib._get_hooks("switch-activate")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Deactivate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("switch-deactivate-pre", [])
 	var _repl = _lib._get_hooks("switch-deactivate")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("switch-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("switch-updatetooltip")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func PlaySwitch():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("switch-playswitch-pre", [])
 	var _repl = _lib._get_hooks("switch-playswitch")
 	if _repl.size() > 0:

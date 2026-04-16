@@ -5,6 +5,7 @@ func ExecuteSort(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("sorter-executesort-pre", [_value])
 	var _repl = _lib._get_hooks("sorter-executesort")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecuteReindex(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("sorter-executereindex-pre", [_value])
 	var _repl = _lib._get_hooks("sorter-executereindex")
 	if _repl.size() > 0:

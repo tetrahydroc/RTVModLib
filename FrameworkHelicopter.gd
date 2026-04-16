@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-_ready-pre", [])
 	var _repl = _lib._get_hooks("helicopter-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func RotorBlades(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-rotorblades-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-rotorblades")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Flyby(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-flyby-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-flyby")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Patrol(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-patrol-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-patrol")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Attack(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-attack-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-attack")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func SetWaypoint():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-setwaypoint-pre", [])
 	var _repl = _lib._get_hooks("helicopter-setwaypoint")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func DistanceClear():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-distanceclear-pre", [])
 	var _repl = _lib._get_hooks("helicopter-distanceclear")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func FireRockets():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-firerockets-pre", [])
 	var _repl = _lib._get_hooks("helicopter-firerockets")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func Searchlight(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-searchlight-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-searchlight")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func ActivateSearchlight():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-activatesearchlight-pre", [])
 	var _repl = _lib._get_hooks("helicopter-activatesearchlight")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func DeactivateSearchlight():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-deactivatesearchlight-pre", [])
 	var _repl = _lib._get_hooks("helicopter-deactivatesearchlight")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func SetSearchlightTarget():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-setsearchlighttarget-pre", [])
 	var _repl = _lib._get_hooks("helicopter-setsearchlighttarget")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func Sensor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-sensor-pre", [delta])
 	var _repl = _lib._get_hooks("helicopter-sensor")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func Spotted():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-spotted-pre", [])
 	var _repl = _lib._get_hooks("helicopter-spotted")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func PlayRocket():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("helicopter-playrocket-pre", [])
 	var _repl = _lib._get_hooks("helicopter-playrocket")
 	if _repl.size() > 0:

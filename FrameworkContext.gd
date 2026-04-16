@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_ready-pre", [])
 	var _repl = _lib._get_hooks("context-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("context-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Update(slotData: SlotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("context-update-pre", [slotData])
 	var _repl = _lib._get_hooks("context-update")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func _on_use_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_use_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_use_pressed")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func _on_unload_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_unload_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_unload_pressed")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func _on_take_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_take_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_take_pressed")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func _on_split_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_split_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_split_pressed")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func _on_equip_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_equip_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_equip_pressed")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func _on_unequip_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_unequip_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_unequip_pressed")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func _on_drop_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_drop_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_drop_pressed")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func _on_place_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_place_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_place_pressed")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func _on_destroy_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_destroy_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_destroy_pressed")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func _on_sleep_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_sleep_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_sleep_pressed")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func _on_transfer_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_transfer_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_transfer_pressed")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func _on_remove_0_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_remove_0_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_remove_0_pressed")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func _on_remove_1_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_remove_1_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_remove_1_pressed")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func _on_remove_2_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_remove_2_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_remove_2_pressed")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func _on_remove_3_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-_on_remove_3_pressed-pre", [])
 	var _repl = _lib._get_hooks("context-_on_remove_3_pressed")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func GetHover():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-gethover-pre", [])
 	var _repl = _lib._get_hooks("context-gethover")
 	if _repl.size() > 0:
@@ -391,6 +410,7 @@ func CalculateDistance():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("context-calculatedistance-pre", [])
 	var _repl = _lib._get_hooks("context-calculatedistance")
 	if _repl.size() > 0:

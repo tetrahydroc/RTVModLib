@@ -5,6 +5,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("profiler-_input-pre", [event])
 	var _repl = _lib._get_hooks("profiler-_input")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Basic():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("profiler-basic-pre", [])
 	var _repl = _lib._get_hooks("profiler-basic")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func _process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("profiler-_process-pre", [_delta])
 	var _repl = _lib._get_hooks("profiler-_process")
 	if _repl.size() > 0:

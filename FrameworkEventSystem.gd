@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-_ready-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func GetAvailableEvents():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-getavailableevents-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-getavailableevents")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ActivateDynamicEvent():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-activatedynamicevent-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-activatedynamicevent")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ActivateTraderEvent():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-activatetraderevent-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-activatetraderevent")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ActivateSpecialEvent():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-activatespecialevent-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-activatespecialevent")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func FighterJet():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-fighterjet-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-fighterjet")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Airdrop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-airdrop-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-airdrop")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Police():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-police-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-police")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func Helicopter():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-helicopter-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-helicopter")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func CrashSite():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-crashsite-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-crashsite")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func BTR():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-btr-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-btr")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func ActivateTrader():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-activatetrader-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-activatetrader")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func DeactivateTrader():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-deactivatetrader-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-deactivatetrader")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func Cat():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-cat-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-cat")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func Transmission():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("eventsystem-transmission-pre", [])
 	var _repl = _lib._get_hooks("eventsystem-transmission")
 	if _repl.size() > 0:

@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-_ready-pre", [])
 	var _repl = _lib._get_hooks("uimanager-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-_input-pre", [event])
 	var _repl = _lib._get_hooks("uimanager-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Return():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-return-pre", [])
 	var _repl = _lib._get_hooks("uimanager-return")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ToggleSettings():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-togglesettings-pre", [])
 	var _repl = _lib._get_hooks("uimanager-togglesettings")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ToggleInterface():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-toggleinterface-pre", [])
 	var _repl = _lib._get_hooks("uimanager-toggleinterface")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func OpenContainer(container: LootContainer):
 	if !_lib:
 		super(container)
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-opencontainer-pre", [container])
 	var _repl = _lib._get_hooks("uimanager-opencontainer")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func OpenTrader(trader):
 	if !_lib:
 		super(trader)
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-opentrader-pre", [trader])
 	var _repl = _lib._get_hooks("uimanager-opentrader")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func UIOpen():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-uiopen-pre", [])
 	var _repl = _lib._get_hooks("uimanager-uiopen")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func UIClose():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-uiclose-pre", [])
 	var _repl = _lib._get_hooks("uimanager-uiclose")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func ClickAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("uimanager-clickaudio-pre", [])
 	var _repl = _lib._get_hooks("uimanager-clickaudio")
 	if _repl.size() > 0:

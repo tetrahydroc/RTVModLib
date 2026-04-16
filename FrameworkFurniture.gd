@@ -6,6 +6,7 @@ func ExecuteInitialize(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-executeinitialize-pre", [_value])
 	var _repl = _lib._get_hooks("furniture-executeinitialize")
 	if _repl.size() > 0:
@@ -26,6 +27,7 @@ func ExecuteHideIndicators(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-executehideindicators-pre", [_value])
 	var _repl = _lib._get_hooks("furniture-executehideindicators")
 	if _repl.size() > 0:
@@ -46,6 +48,7 @@ func Catalog():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-catalog-pre", [])
 	var _repl = _lib._get_hooks("furniture-catalog")
 	if _repl.size() > 0:
@@ -68,6 +71,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-_ready-pre", [])
 	var _repl = _lib._get_hooks("furniture-_ready")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("furniture-_physics_process")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func StartMove():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-startmove-pre", [])
 	var _repl = _lib._get_hooks("furniture-startmove")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ResetMove():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-resetmove-pre", [])
 	var _repl = _lib._get_hooks("furniture-resetmove")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func HintPosition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-hintposition-pre", [])
 	var _repl = _lib._get_hooks("furniture-hintposition")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func DeactivateRays():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-deactivaterays-pre", [])
 	var _repl = _lib._get_hooks("furniture-deactivaterays")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func ActivateRays():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-activaterays-pre", [])
 	var _repl = _lib._get_hooks("furniture-activaterays")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func CheckOverlap():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-checkoverlap-pre", [])
 	var _repl = _lib._get_hooks("furniture-checkoverlap")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func CheckRays():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-checkrays-pre", [])
 	var _repl = _lib._get_hooks("furniture-checkrays")
 	if _repl.size() > 0:
@@ -250,6 +262,7 @@ func GetSnapData():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("furniture-getsnapdata-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("furniture-getsnapdata")
@@ -273,6 +286,7 @@ func CanPlace():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("furniture-canplace-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("furniture-canplace")
@@ -297,6 +311,7 @@ func ParentItems():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-parentitems-pre", [])
 	var _repl = _lib._get_hooks("furniture-parentitems")
 	if _repl.size() > 0:
@@ -317,6 +332,7 @@ func FreeItems():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-freeitems-pre", [])
 	var _repl = _lib._get_hooks("furniture-freeitems")
 	if _repl.size() > 0:
@@ -337,6 +353,7 @@ func DropParentedItems():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-dropparenteditems-pre", [])
 	var _repl = _lib._get_hooks("furniture-dropparenteditems")
 	if _repl.size() > 0:
@@ -357,6 +374,7 @@ func ParentHint():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-parenthint-pre", [])
 	var _repl = _lib._get_hooks("furniture-parenthint")
 	if _repl.size() > 0:
@@ -377,6 +395,7 @@ func FreeHint():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-freehint-pre", [])
 	var _repl = _lib._get_hooks("furniture-freehint")
 	if _repl.size() > 0:
@@ -397,6 +416,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("furniture-updatetooltip")
 	if _repl.size() > 0:
@@ -417,6 +437,7 @@ func PlayFurniture():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-playfurniture-pre", [])
 	var _repl = _lib._get_hooks("furniture-playfurniture")
 	if _repl.size() > 0:
@@ -437,6 +458,7 @@ func PlayPickup():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("furniture-playpickup-pre", [])
 	var _repl = _lib._get_hooks("furniture-playpickup")
 	if _repl.size() > 0:

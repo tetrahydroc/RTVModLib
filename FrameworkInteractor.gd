@@ -5,6 +5,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("interactor-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("interactor-_physics_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interactor-interact-pre", [])
 	var _repl = _lib._get_hooks("interactor-interact")
 	if _repl.size() > 0:

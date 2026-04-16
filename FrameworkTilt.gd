@@ -5,6 +5,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("tilt-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("tilt-_physics_process")
 	if _repl.size() > 0:

@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-_ready-pre", [])
 	var _repl = _lib._get_hooks("camera-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("camera-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Interpolate(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-interpolate-pre", [delta])
 	var _repl = _lib._get_hooks("camera-interpolate")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Follow():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-follow-pre", [])
 	var _repl = _lib._get_hooks("camera-follow")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func FOV(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-fov-pre", [delta])
 	var _repl = _lib._get_hooks("camera-fov")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func DOF(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-dof-pre", [delta])
 	var _repl = _lib._get_hooks("camera-dof")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func UIDOF(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-uidof-pre", [delta])
 	var _repl = _lib._get_hooks("camera-uidof")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func ScopeDOF(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-scopedof-pre", [delta])
 	var _repl = _lib._get_hooks("camera-scopedof")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func ResetDOF(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("camera-resetdof-pre", [delta])
 	var _repl = _lib._get_hooks("camera-resetdof")
 	if _repl.size() > 0:

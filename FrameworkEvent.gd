@@ -5,6 +5,7 @@ func Initialize(event: EventData, targetInterface):
 	if !_lib:
 		super(event, targetInterface)
 		return
+	_lib._caller = self
 	_lib._dispatch("event-initialize-pre", [event, targetInterface])
 	var _repl = _lib._get_hooks("event-initialize")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _on_show_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("event-_on_show_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("event-_on_show_toggled")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Collapse():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("event-collapse-pre", [])
 	var _repl = _lib._get_hooks("event-collapse")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func Expand():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("event-expand-pre", [])
 	var _repl = _lib._get_hooks("event-expand")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func Default():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("event-default-pre", [])
 	var _repl = _lib._get_hooks("event-default")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func Active():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("event-active-pre", [])
 	var _repl = _lib._get_hooks("event-active")
 	if _repl.size() > 0:
@@ -125,6 +131,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("event-playclick-pre", [])
 	var _repl = _lib._get_hooks("event-playclick")
 	if _repl.size() > 0:

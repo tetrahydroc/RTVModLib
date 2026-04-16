@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("water-_ready-pre", [])
 	var _repl = _lib._get_hooks("water-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("water-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("water-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func PlayWaterDive():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("water-playwaterdive-pre", [])
 	var _repl = _lib._get_hooks("water-playwaterdive")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func PlayWaterSurface():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("water-playwatersurface-pre", [])
 	var _repl = _lib._get_hooks("water-playwatersurface")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func PlayWaterGasp():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("water-playwatergasp-pre", [])
 	var _repl = _lib._get_hooks("water-playwatergasp")
 	if _repl.size() > 0:

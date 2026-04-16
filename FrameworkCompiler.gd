@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("compiler-_ready-pre", [])
 	var _repl = _lib._get_hooks("compiler-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("compiler-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("compiler-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Spawn():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("compiler-spawn-pre", [])
 	var _repl = _lib._get_hooks("compiler-spawn")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func PlayVostokEnter():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("compiler-playvostokenter-pre", [])
 	var _repl = _lib._get_hooks("compiler-playvostokenter")
 	if _repl.size() > 0:

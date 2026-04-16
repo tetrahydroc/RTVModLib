@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-_ready-pre", [])
 	var _repl = _lib._get_hooks("cat-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta: float):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("cat-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Behavior():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-behavior-pre", [])
 	var _repl = _lib._get_hooks("cat-behavior")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Meow(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-meow-pre", [delta])
 	var _repl = _lib._get_hooks("cat-meow")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ForceMeow():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-forcemeow-pre", [])
 	var _repl = _lib._get_hooks("cat-forcemeow")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func ResetAnimations():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-resetanimations-pre", [])
 	var _repl = _lib._get_hooks("cat-resetanimations")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Dead():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-dead-pre", [])
 	var _repl = _lib._get_hooks("cat-dead")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func PlayMeow():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("cat-playmeow-pre", [])
 	var _repl = _lib._get_hooks("cat-playmeow")
 	if _repl.size() > 0:

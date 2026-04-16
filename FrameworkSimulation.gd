@@ -5,6 +5,7 @@ func _process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("simulation-_process-pre", [delta])
 	var _repl = _lib._get_hooks("simulation-_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func WeatherChange():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("simulation-weatherchange-pre", [])
 	var _repl = _lib._get_hooks("simulation-weatherchange")
 	if _repl.size() > 0:

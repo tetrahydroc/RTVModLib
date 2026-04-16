@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("tooltip-_ready-pre", [])
 	var _repl = _lib._get_hooks("tooltip-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Reset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("tooltip-reset-pre", [])
 	var _repl = _lib._get_hooks("tooltip-reset")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Update(item: Item):
 	if !_lib:
 		super(item)
 		return
+	_lib._caller = self
 	_lib._dispatch("tooltip-update-pre", [item])
 	var _repl = _lib._get_hooks("tooltip-update")
 	if _repl.size() > 0:
@@ -70,6 +73,7 @@ func CreateNestedString(slotData: SlotData):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData)
+	_lib._caller = self
 	_lib._dispatch("tooltip-createnestedstring-pre", [slotData])
 	var _result
 	var _repl = _lib._get_hooks("tooltip-createnestedstring")
@@ -93,6 +97,7 @@ func CreateCompatibleString(slotData: SlotData):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData)
+	_lib._caller = self
 	_lib._dispatch("tooltip-createcompatiblestring-pre", [slotData])
 	var _result
 	var _repl = _lib._get_hooks("tooltip-createcompatiblestring")
@@ -116,6 +121,7 @@ func CreateEquipmentString(slotData: SlotData):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData)
+	_lib._caller = self
 	_lib._dispatch("tooltip-createequipmentstring-pre", [slotData])
 	var _result
 	var _repl = _lib._get_hooks("tooltip-createequipmentstring")
@@ -140,6 +146,7 @@ func Info(hoverInfo):
 	if !_lib:
 		super(hoverInfo)
 		return
+	_lib._caller = self
 	_lib._dispatch("tooltip-info-pre", [hoverInfo])
 	var _repl = _lib._get_hooks("tooltip-info")
 	if _repl.size() > 0:

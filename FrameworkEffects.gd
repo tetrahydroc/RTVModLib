@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-_ready-pre", [])
 	var _repl = _lib._get_hooks("effects-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("effects-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ImpactEffect(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-impacteffect-pre", [delta])
 	var _repl = _lib._get_hooks("effects-impacteffect")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func DamageEffect(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-damageeffect-pre", [delta])
 	var _repl = _lib._get_hooks("effects-damageeffect")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func SleepingEffect(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-sleepingeffect-pre", [delta])
 	var _repl = _lib._get_hooks("effects-sleepingeffect")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func HealthEffect(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-healtheffect-pre", [delta])
 	var _repl = _lib._get_hooks("effects-healtheffect")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func SubmergedEffect():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("effects-submergedeffect-pre", [])
 	var _repl = _lib._get_hooks("effects-submergedeffect")
 	if _repl.size() > 0:

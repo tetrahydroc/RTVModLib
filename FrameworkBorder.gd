@@ -5,6 +5,7 @@ func ExecuteGeneratePoles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-executegeneratepoles-pre", [_value])
 	var _repl = _lib._get_hooks("border-executegeneratepoles")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecuteGenerateRibbon(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-executegenerateribbon-pre", [_value])
 	var _repl = _lib._get_hooks("border-executegenerateribbon")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func ExecuteGenerateBlocker(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-executegenerateblocker-pre", [_value])
 	var _repl = _lib._get_hooks("border-executegenerateblocker")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func ExecuteGenerateBorder(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-executegenerateborder-pre", [_value])
 	var _repl = _lib._get_hooks("border-executegenerateborder")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func ExecuteMergePoles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-executemergepoles-pre", [_value])
 	var _repl = _lib._get_hooks("border-executemergepoles")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("border-executeclear")
 	if _repl.size() > 0:
@@ -125,6 +131,7 @@ func FoldHierarchy(node: Node):
 	if !_lib:
 		super(node)
 		return
+	_lib._caller = self
 	_lib._dispatch("border-foldhierarchy-pre", [node])
 	var _repl = _lib._get_hooks("border-foldhierarchy")
 	if _repl.size() > 0:

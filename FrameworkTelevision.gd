@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("television-_ready-pre", [])
 	var _repl = _lib._get_hooks("television-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("television-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("television-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("television-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("television-updatetooltip")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("television-interact-pre", [])
 	var _repl = _lib._get_hooks("television-interact")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Activate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("television-activate-pre", [])
 	var _repl = _lib._get_hooks("television-activate")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Deactivate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("television-deactivate-pre", [])
 	var _repl = _lib._get_hooks("television-deactivate")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func MoveReset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("television-movereset-pre", [])
 	var _repl = _lib._get_hooks("television-movereset")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func PlayToggle():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("television-playtoggle-pre", [])
 	var _repl = _lib._get_hooks("television-playtoggle")
 	if _repl.size() > 0:

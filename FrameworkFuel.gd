@@ -5,6 +5,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fuel-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("fuel-updatetooltip")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fuel-interact-pre", [])
 	var _repl = _lib._get_hooks("fuel-interact")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func ErrorAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fuel-erroraudio-pre", [])
 	var _repl = _lib._get_hooks("fuel-erroraudio")
 	if _repl.size() > 0:

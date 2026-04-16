@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("jet-_ready-pre", [])
 	var _repl = _lib._get_hooks("jet-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("jet-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("jet-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Flyby(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("jet-flyby-pre", [delta])
 	var _repl = _lib._get_hooks("jet-flyby")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func DistanceClear():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("jet-distanceclear-pre", [])
 	var _repl = _lib._get_hooks("jet-distanceclear")
 	if _repl.size() > 0:

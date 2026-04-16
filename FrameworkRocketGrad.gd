@@ -5,6 +5,7 @@ func ExecuteLaunch(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("rocketgrad-executelaunch-pre", [_value])
 	var _repl = _lib._get_hooks("rocketgrad-executelaunch")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _process(delta: float):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("rocketgrad-_process-pre", [delta])
 	var _repl = _lib._get_hooks("rocketgrad-_process")
 	if _repl.size() > 0:

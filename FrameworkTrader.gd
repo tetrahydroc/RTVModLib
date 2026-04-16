@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-_ready-pre", [])
 	var _repl = _lib._get_hooks("trader-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Activate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-activate-pre", [])
 	var _repl = _lib._get_hooks("trader-activate")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Deactivate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-deactivate-pre", [])
 	var _repl = _lib._get_hooks("trader-deactivate")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("trader-_physics_process")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Animate(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-animate-pre", [delta])
 	var _repl = _lib._get_hooks("trader-animate")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func SupplyTimer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-supplytimer-pre", [])
 	var _repl = _lib._get_hooks("trader-supplytimer")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func FillTraderBucket():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-filltraderbucket-pre", [])
 	var _repl = _lib._get_hooks("trader-filltraderbucket")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func CreateSupply():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-createsupply-pre", [])
 	var _repl = _lib._get_hooks("trader-createsupply")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func RemoveFromSupply(item: ItemData):
 	if !_lib:
 		super(item)
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-removefromsupply-pre", [item])
 	var _repl = _lib._get_hooks("trader-removefromsupply")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-interact-pre", [])
 	var _repl = _lib._get_hooks("trader-interact")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("trader-updatetooltip")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func CompleteTask(taskData: TaskData):
 	if !_lib:
 		super(taskData)
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-completetask-pre", [taskData])
 	var _repl = _lib._get_hooks("trader-completetask")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func Voices(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-voices-pre", [delta])
 	var _repl = _lib._get_hooks("trader-voices")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func PlayTraderStart():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-playtraderstart-pre", [])
 	var _repl = _lib._get_hooks("trader-playtraderstart")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func PlayTraderEnd():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-playtraderend-pre", [])
 	var _repl = _lib._get_hooks("trader-playtraderend")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func PlayTraderReset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-playtraderreset-pre", [])
 	var _repl = _lib._get_hooks("trader-playtraderreset")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func PlayTraderRandom():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-playtraderrandom-pre", [])
 	var _repl = _lib._get_hooks("trader-playtraderrandom")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func PlayTraderTrade():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-playtradertrade-pre", [])
 	var _repl = _lib._get_hooks("trader-playtradertrade")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func PlayTraderTask():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("trader-playtradertask-pre", [])
 	var _repl = _lib._get_hooks("trader-playtradertask")
 	if _repl.size() > 0:

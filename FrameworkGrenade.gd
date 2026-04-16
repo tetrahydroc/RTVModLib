@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("grenade-_ready-pre", [])
 	var _repl = _lib._get_hooks("grenade-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("grenade-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("grenade-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Detonate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenade-detonate-pre", [])
 	var _repl = _lib._get_hooks("grenade-detonate")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Collided(body: Node3D):
 	if !_lib:
 		super(body)
 		return
+	_lib._caller = self
 	_lib._dispatch("grenade-collided-pre", [body])
 	var _repl = _lib._get_hooks("grenade-collided")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func PlayBounce(surface):
 	if !_lib:
 		super(surface)
 		return
+	_lib._caller = self
 	_lib._dispatch("grenade-playbounce-pre", [surface])
 	var _repl = _lib._get_hooks("grenade-playbounce")
 	if _repl.size() > 0:

@@ -5,6 +5,7 @@ func LoadingShaders():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loading-loadingshaders-pre", [])
 	var _repl = _lib._get_hooks("loading-loadingshaders")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func LoadingFinished():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loading-loadingfinished-pre", [])
 	var _repl = _lib._get_hooks("loading-loadingfinished")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Hide():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loading-hide-pre", [])
 	var _repl = _lib._get_hooks("loading-hide")
 	if _repl.size() > 0:

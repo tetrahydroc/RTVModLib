@@ -5,6 +5,7 @@ func ExecuteUpdate(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("database-executeupdate-pre", [_value])
 	var _repl = _lib._get_hooks("database-executeupdate")
 	if _repl.size() > 0:

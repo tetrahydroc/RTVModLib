@@ -5,6 +5,7 @@ func ExecuteGenerate(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("cables-executegenerate-pre", [_value])
 	var _repl = _lib._get_hooks("cables-executegenerate")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecuteGenerateCables(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("cables-executegeneratecables-pre", [_value])
 	var _repl = _lib._get_hooks("cables-executegeneratecables")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func ExecuteGenerateBlocker(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("cables-executegenerateblocker-pre", [_value])
 	var _repl = _lib._get_hooks("cables-executegenerateblocker")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("cables-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("cables-executeclear")
 	if _repl.size() > 0:

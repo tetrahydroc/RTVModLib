@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-_ready-pre", [])
 	var _repl = _lib._get_hooks("pickup-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-interact-pre", [])
 	var _repl = _lib._get_hooks("pickup-interact")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Freeze():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-freeze-pre", [])
 	var _repl = _lib._get_hooks("pickup-freeze")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Kinematic():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-kinematic-pre", [])
 	var _repl = _lib._get_hooks("pickup-kinematic")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Unfreeze():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-unfreeze-pre", [])
 	var _repl = _lib._get_hooks("pickup-unfreeze")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("pickup-updatetooltip")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func UpdateAttachments():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-updateattachments-pre", [])
 	var _repl = _lib._get_hooks("pickup-updateattachments")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Explode():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-explode-pre", [])
 	var _repl = _lib._get_hooks("pickup-explode")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func PlayPickup():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("pickup-playpickup-pre", [])
 	var _repl = _lib._get_hooks("pickup-playpickup")
 	if _repl.size() > 0:

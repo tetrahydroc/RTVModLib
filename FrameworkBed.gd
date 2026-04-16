@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("bed-_ready-pre", [])
 	var _repl = _lib._get_hooks("bed-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("bed-interact-pre", [])
 	var _repl = _lib._get_hooks("bed-interact")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("bed-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("bed-updatetooltip")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func UpdateSimulation(sleepTime):
 	if !_lib:
 		super(sleepTime)
 		return
+	_lib._caller = self
 	_lib._dispatch("bed-updatesimulation-pre", [sleepTime])
 	var _repl = _lib._get_hooks("bed-updatesimulation")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func PlayTransition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("bed-playtransition-pre", [])
 	var _repl = _lib._get_hooks("bed-playtransition")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func PlaySleep():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("bed-playsleep-pre", [])
 	var _repl = _lib._get_hooks("bed-playsleep")
 	if _repl.size() > 0:

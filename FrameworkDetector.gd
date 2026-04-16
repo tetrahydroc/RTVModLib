@@ -5,6 +5,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("detector-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("detector-_physics_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Detect():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("detector-detect-pre", [])
 	var _repl = _lib._get_hooks("detector-detect")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Indoor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("detector-indoor-pre", [delta])
 	var _repl = _lib._get_hooks("detector-indoor")
 	if _repl.size() > 0:

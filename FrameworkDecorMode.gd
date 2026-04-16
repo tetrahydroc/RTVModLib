@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("decormode-_ready-pre", [])
 	var _repl = _lib._get_hooks("decormode-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("decormode-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("decormode-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func FurnitureVisibility(visibility: bool):
 	if !_lib:
 		super(visibility)
 		return
+	_lib._caller = self
 	_lib._dispatch("decormode-furniturevisibility-pre", [visibility])
 	var _repl = _lib._get_hooks("decormode-furniturevisibility")
 	if _repl.size() > 0:

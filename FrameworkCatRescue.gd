@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("catrescue-_ready-pre", [])
 	var _repl = _lib._get_hooks("catrescue-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("catrescue-interact-pre", [])
 	var _repl = _lib._get_hooks("catrescue-interact")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("catrescue-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("catrescue-updatetooltip")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func PlayPickup():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("catrescue-playpickup-pre", [])
 	var _repl = _lib._get_hooks("catrescue-playpickup")
 	if _repl.size() > 0:

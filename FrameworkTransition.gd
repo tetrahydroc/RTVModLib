@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("transition-_ready-pre", [])
 	var _repl = _lib._get_hooks("transition-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("transition-interact-pre", [])
 	var _repl = _lib._get_hooks("transition-interact")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func CheckKey():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("transition-checkkey-pre", [])
 	var _repl = _lib._get_hooks("transition-checkkey")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func UpdateSimulation():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("transition-updatesimulation-pre", [])
 	var _repl = _lib._get_hooks("transition-updatesimulation")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func PlayUnlock():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("transition-playunlock-pre", [])
 	var _repl = _lib._get_hooks("transition-playunlock")
 	if _repl.size() > 0:

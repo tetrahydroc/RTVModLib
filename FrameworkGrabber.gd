@@ -5,6 +5,7 @@ func Update(slotData: SlotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("grabber-update-pre", [slotData])
 	var _repl = _lib._get_hooks("grabber-update")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Swap(slotData: SlotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("grabber-swap-pre", [slotData])
 	var _repl = _lib._get_hooks("grabber-swap")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Reset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grabber-reset-pre", [])
 	var _repl = _lib._get_hooks("grabber-reset")
 	if _repl.size() > 0:

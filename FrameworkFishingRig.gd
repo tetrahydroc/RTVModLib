@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-_ready-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(_event):
 	if !_lib:
 		super(_event)
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-_input-pre", [_event])
 	var _repl = _lib._get_hooks("fishingrig-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("fishingrig-_physics_process")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Reeling(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-reeling-pre", [delta])
 	var _repl = _lib._get_hooks("fishingrig-reeling")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ReelAudio(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-reelaudio-pre", [delta])
 	var _repl = _lib._get_hooks("fishingrig-reelaudio")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Line():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-line-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-line")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ThrowPrepared():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-throwprepared-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-throwprepared")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func ThrowExecuted():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-throwexecuted-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-throwexecuted")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func ReelPrepared():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-reelprepared-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-reelprepared")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func ThrowExecute():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-throwexecute-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-throwexecute")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func Freeze():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-freeze-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-freeze")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func Unfreeze():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-unfreeze-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-unfreeze")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func PlayThrowStart():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-playthrowstart-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-playthrowstart")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func PlayThrowEnd():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-playthrowend-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-playthrowend")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func PlayThrowReset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-playthrowreset-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-playthrowreset")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func PlayReelEnd():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-playreelend-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-playreelend")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func PlayHooked():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-playhooked-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-playhooked")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func PlayCatch():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fishingrig-playcatch-pre", [])
 	var _repl = _lib._get_hooks("fishingrig-playcatch")
 	if _repl.size() > 0:

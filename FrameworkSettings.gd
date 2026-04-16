@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_ready-pre", [])
 	var _repl = _lib._get_hooks("settings-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func LoadPreferences():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-loadpreferences-pre", [])
 	var _repl = _lib._get_hooks("settings-loadpreferences")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func SaveMenuLog(value: int):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savemenulog-pre", [value])
 	var _repl = _lib._get_hooks("settings-savemenulog")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func SaveMenuHardware(value: int):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savemenuhardware-pre", [value])
 	var _repl = _lib._get_hooks("settings-savemenuhardware")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func SaveMenuIntro(value: int):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savemenuintro-pre", [value])
 	var _repl = _lib._get_hooks("settings-savemenuintro")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func SaveMenuMusic(value: int):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savemenumusic-pre", [value])
 	var _repl = _lib._get_hooks("settings-savemenumusic")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func SaveDefaultTool(tool: int):
 	if !_lib:
 		super(tool)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savedefaulttool-pre", [tool])
 	var _repl = _lib._get_hooks("settings-savedefaulttool")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func SaveDefaultType(type: int):
 	if !_lib:
 		super(type)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savedefaulttype-pre", [type])
 	var _repl = _lib._get_hooks("settings-savedefaulttype")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func SaveCasetteVolume(value: float):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savecasettevolume-pre", [value])
 	var _repl = _lib._get_hooks("settings-savecasettevolume")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func SaveCasetteOverride(override: bool):
 	if !_lib:
 		super(override)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-savecasetteoverride-pre", [override])
 	var _repl = _lib._get_hooks("settings-savecasetteoverride")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func _on_master_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_master_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_master_slider_value_changed")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func _on_ambient_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_ambient_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_ambient_slider_value_changed")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func _on_music_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_music_slider_value_changed")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func _on_music_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_music_off_pressed")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func _on_music_dynamic_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_dynamic_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_music_dynamic_pressed")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func _on_music_shelter_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_shelter_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_music_shelter_pressed")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func _on_music_area_05_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_area_05_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_music_area_05_pressed")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func _on_music_border_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_border_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_music_border_pressed")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func _on_music_vostok_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_music_vostok_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_music_vostok_pressed")
 	if _repl.size() > 0:
@@ -391,6 +410,7 @@ func _on_interpolate_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_interpolate_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_interpolate_off_pressed")
 	if _repl.size() > 0:
@@ -411,6 +431,7 @@ func _on_interpolate_on_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_interpolate_on_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_interpolate_on_pressed")
 	if _repl.size() > 0:
@@ -431,6 +452,7 @@ func _on_fov_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fov_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_fov_slider_value_changed")
 	if _repl.size() > 0:
@@ -451,6 +473,7 @@ func _on_headbob_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_headbob_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_headbob_slider_value_changed")
 	if _repl.size() > 0:
@@ -471,6 +494,7 @@ func _on_look_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_look_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_look_slider_value_changed")
 	if _repl.size() > 0:
@@ -491,6 +515,7 @@ func _on_aim_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_aim_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_aim_slider_value_changed")
 	if _repl.size() > 0:
@@ -511,6 +536,7 @@ func _on_scope_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_scope_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_scope_slider_value_changed")
 	if _repl.size() > 0:
@@ -531,6 +557,7 @@ func _on_exposure_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_exposure_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_exposure_slider_value_changed")
 	if _repl.size() > 0:
@@ -551,6 +578,7 @@ func _on_contrast_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_contrast_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_contrast_slider_value_changed")
 	if _repl.size() > 0:
@@ -571,6 +599,7 @@ func _on_saturation_slider_value_changed(value):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_saturation_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_saturation_slider_value_changed")
 	if _repl.size() > 0:
@@ -591,6 +620,7 @@ func _on_sharpness_slider_value_changed(value: float):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_sharpness_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("settings-_on_sharpness_slider_value_changed")
 	if _repl.size() > 0:
@@ -611,6 +641,7 @@ func _on_map_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_map_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("settings-_on_map_toggled")
 	if _repl.size() > 0:
@@ -631,6 +662,7 @@ func _on_fps_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fps_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("settings-_on_fps_toggled")
 	if _repl.size() > 0:
@@ -651,6 +683,7 @@ func _on_vitals_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_vitals_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("settings-_on_vitals_toggled")
 	if _repl.size() > 0:
@@ -671,6 +704,7 @@ func _on_medical_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_medical_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("settings-_on_medical_toggled")
 	if _repl.size() > 0:
@@ -691,6 +725,7 @@ func _on_placement_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_placement_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("settings-_on_placement_toggled")
 	if _repl.size() > 0:
@@ -711,6 +746,7 @@ func _on_decor_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_decor_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("settings-_on_decor_toggled")
 	if _repl.size() > 0:
@@ -731,6 +767,7 @@ func _on_tooltip_on_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_tooltip_on_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_tooltip_on_pressed")
 	if _repl.size() > 0:
@@ -751,6 +788,7 @@ func _on_tooltip_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_tooltip_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_tooltip_off_pressed")
 	if _repl.size() > 0:
@@ -771,6 +809,7 @@ func _on_pip_on_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_pip_on_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_pip_on_pressed")
 	if _repl.size() > 0:
@@ -791,6 +830,7 @@ func _on_pip_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_pip_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_pip_off_pressed")
 	if _repl.size() > 0:
@@ -811,6 +851,7 @@ func _on_shadows_on_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_shadows_on_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_shadows_on_pressed")
 	if _repl.size() > 0:
@@ -831,6 +872,7 @@ func _on_shadows_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_shadows_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_shadows_off_pressed")
 	if _repl.size() > 0:
@@ -851,6 +893,7 @@ func _on_reflections_on_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_reflections_on_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_reflections_on_pressed")
 	if _repl.size() > 0:
@@ -871,6 +914,7 @@ func _on_reflections_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_reflections_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_reflections_off_pressed")
 	if _repl.size() > 0:
@@ -891,6 +935,7 @@ func _on_ao_on_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_ao_on_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_ao_on_pressed")
 	if _repl.size() > 0:
@@ -911,6 +956,7 @@ func _on_ao_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_ao_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_ao_off_pressed")
 	if _repl.size() > 0:
@@ -931,6 +977,7 @@ func _on_fullscreen_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fullscreen_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_fullscreen_pressed")
 	if _repl.size() > 0:
@@ -951,6 +998,7 @@ func _on_windowed_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_windowed_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_windowed_pressed")
 	if _repl.size() > 0:
@@ -971,6 +1019,7 @@ func _on_monitors_item_selected(index: int):
 	if !_lib:
 		super(index)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_monitors_item_selected-pre", [index])
 	var _repl = _lib._get_hooks("settings-_on_monitors_item_selected")
 	if _repl.size() > 0:
@@ -991,6 +1040,7 @@ func _on_sizes_item_selected(index: int):
 	if !_lib:
 		super(index)
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_sizes_item_selected-pre", [index])
 	var _repl = _lib._get_hooks("settings-_on_sizes_item_selected")
 	if _repl.size() > 0:
@@ -1011,6 +1061,7 @@ func _on_r_low_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_r_low_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_r_low_pressed")
 	if _repl.size() > 0:
@@ -1031,6 +1082,7 @@ func _on_r_medium_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_r_medium_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_r_medium_pressed")
 	if _repl.size() > 0:
@@ -1051,6 +1103,7 @@ func _on_r_high_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_r_high_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_r_high_pressed")
 	if _repl.size() > 0:
@@ -1071,6 +1124,7 @@ func _on_r_ultra_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_r_ultra_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_r_ultra_pressed")
 	if _repl.size() > 0:
@@ -1091,6 +1145,7 @@ func _on_l_low_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_l_low_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_l_low_pressed")
 	if _repl.size() > 0:
@@ -1111,6 +1166,7 @@ func _on_l_medium_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_l_medium_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_l_medium_pressed")
 	if _repl.size() > 0:
@@ -1131,6 +1187,7 @@ func _on_l_high_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_l_high_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_l_high_pressed")
 	if _repl.size() > 0:
@@ -1151,6 +1208,7 @@ func _on_l_ultra_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_l_ultra_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_l_ultra_pressed")
 	if _repl.size() > 0:
@@ -1171,6 +1229,7 @@ func _on_msaa_off_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_msaa_off_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_msaa_off_pressed")
 	if _repl.size() > 0:
@@ -1191,6 +1250,7 @@ func _on_msaa_2x_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_msaa_2x_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_msaa_2x_pressed")
 	if _repl.size() > 0:
@@ -1211,6 +1271,7 @@ func _on_msaa_4x_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_msaa_4x_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_msaa_4x_pressed")
 	if _repl.size() > 0:
@@ -1231,6 +1292,7 @@ func _on_msaa_8x_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_msaa_8x_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_msaa_8x_pressed")
 	if _repl.size() > 0:
@@ -1251,6 +1313,7 @@ func _on_fps_60_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fps_60_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_fps_60_pressed")
 	if _repl.size() > 0:
@@ -1271,6 +1334,7 @@ func _on_fps_120_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fps_120_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_fps_120_pressed")
 	if _repl.size() > 0:
@@ -1291,6 +1355,7 @@ func _on_fps_200_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fps_200_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_fps_200_pressed")
 	if _repl.size() > 0:
@@ -1311,6 +1376,7 @@ func _on_fps_300_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_fps_300_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_fps_300_pressed")
 	if _repl.size() > 0:
@@ -1331,6 +1397,7 @@ func _on_vsync_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_vsync_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_vsync_pressed")
 	if _repl.size() > 0:
@@ -1351,6 +1418,7 @@ func _on_unlimited_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_unlimited_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_unlimited_pressed")
 	if _repl.size() > 0:
@@ -1371,6 +1439,7 @@ func _on_menu_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_menu_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_menu_pressed")
 	if _repl.size() > 0:
@@ -1391,6 +1460,7 @@ func _on_quit_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_quit_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_quit_pressed")
 	if _repl.size() > 0:
@@ -1411,6 +1481,7 @@ func _on_exit_menu_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_exit_menu_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_exit_menu_pressed")
 	if _repl.size() > 0:
@@ -1431,6 +1502,7 @@ func _on_exit_quit_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_exit_quit_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_exit_quit_pressed")
 	if _repl.size() > 0:
@@ -1451,6 +1523,7 @@ func _on_exit_return_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-_on_exit_return_pressed-pre", [])
 	var _repl = _lib._get_hooks("settings-_on_exit_return_pressed")
 	if _repl.size() > 0:
@@ -1471,6 +1544,7 @@ func GetWindowSizes():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-getwindowsizes-pre", [])
 	var _repl = _lib._get_hooks("settings-getwindowsizes")
 	if _repl.size() > 0:
@@ -1491,6 +1565,7 @@ func GetMonitors():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-getmonitors-pre", [])
 	var _repl = _lib._get_hooks("settings-getmonitors")
 	if _repl.size() > 0:
@@ -1511,6 +1586,7 @@ func CenterWindow():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-centerwindow-pre", [])
 	var _repl = _lib._get_hooks("settings-centerwindow")
 	if _repl.size() > 0:
@@ -1531,6 +1607,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-playclick-pre", [])
 	var _repl = _lib._get_hooks("settings-playclick")
 	if _repl.size() > 0:
@@ -1551,6 +1628,7 @@ func PlayError():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("settings-playerror-pre", [])
 	var _repl = _lib._get_hooks("settings-playerror")
 	if _repl.size() > 0:

@@ -5,6 +5,7 @@ func ExecuteSnap(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("polesnapper-executesnap-pre", [_value])
 	var _repl = _lib._get_hooks("polesnapper-executesnap")
 	if _repl.size() > 0:

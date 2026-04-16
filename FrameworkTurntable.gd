@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("turntable-_ready-pre", [])
 	var _repl = _lib._get_hooks("turntable-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("turntable-_input-pre", [event])
 	var _repl = _lib._get_hooks("turntable-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("turntable-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("turntable-_physics_process")
 	if _repl.size() > 0:

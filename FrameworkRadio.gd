@@ -5,6 +5,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("radio-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("radio-_physics_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Interact():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("radio-interact-pre", [])
 	var _repl = _lib._get_hooks("radio-interact")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Transmission():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("radio-transmission-pre", [])
 	var _repl = _lib._get_hooks("radio-transmission")
 	if _repl.size() > 0:
@@ -64,6 +67,7 @@ func GetRandomClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("radio-getrandomclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("radio-getrandomclip")
@@ -87,6 +91,7 @@ func GetRandomTransmissionClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("radio-getrandomtransmissionclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("radio-getrandomtransmissionclip")
@@ -110,6 +115,7 @@ func GetRandomTuningClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("radio-getrandomtuningclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("radio-getrandomtuningclip")
@@ -134,6 +140,7 @@ func UpdateTooltip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("radio-updatetooltip-pre", [])
 	var _repl = _lib._get_hooks("radio-updatetooltip")
 	if _repl.size() > 0:
@@ -154,6 +161,7 @@ func InteractAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("radio-interactaudio-pre", [])
 	var _repl = _lib._get_hooks("radio-interactaudio")
 	if _repl.size() > 0:

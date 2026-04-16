@@ -5,6 +5,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("interface-_physics_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func Open():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-open-pre", [])
 	var _repl = _lib._get_hooks("interface-open")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Close():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-close-pre", [])
 	var _repl = _lib._get_hooks("interface-close")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func UpdateUIDetails():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updateuidetails-pre", [])
 	var _repl = _lib._get_hooks("interface-updateuidetails")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func UpdateStats(updateLabels: bool):
 	if !_lib:
 		super(updateLabels)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updatestats-pre", [updateLabels])
 	var _repl = _lib._get_hooks("interface-updatestats")
 	if _repl.size() > 0:
@@ -105,6 +110,7 @@ func HideAllUI():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-hideallui-pre", [])
 	var _repl = _lib._get_hooks("interface-hideallui")
 	if _repl.size() > 0:
@@ -125,6 +131,7 @@ func _on_events_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_events_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_events_pressed")
 	if _repl.size() > 0:
@@ -145,6 +152,7 @@ func InitializeEvents():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-initializeevents-pre", [])
 	var _repl = _lib._get_hooks("interface-initializeevents")
 	if _repl.size() > 0:
@@ -165,6 +173,7 @@ func UpdateEvents():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updateevents-pre", [])
 	var _repl = _lib._get_hooks("interface-updateevents")
 	if _repl.size() > 0:
@@ -185,6 +194,7 @@ func _on_crafting_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_crafting_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_crafting_pressed")
 	if _repl.size() > 0:
@@ -205,6 +215,7 @@ func _on_consumables_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_consumables_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_consumables_pressed")
 	if _repl.size() > 0:
@@ -225,6 +236,7 @@ func _on_medical_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_medical_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_medical_pressed")
 	if _repl.size() > 0:
@@ -245,6 +257,7 @@ func _on_equipment_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_equipment_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_equipment_pressed")
 	if _repl.size() > 0:
@@ -265,6 +278,7 @@ func _on_weapons_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_weapons_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_weapons_pressed")
 	if _repl.size() > 0:
@@ -285,6 +299,7 @@ func _on_electronics_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_electronics_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_electronics_pressed")
 	if _repl.size() > 0:
@@ -305,6 +320,7 @@ func _on_misc_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_misc_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_misc_pressed")
 	if _repl.size() > 0:
@@ -325,6 +341,7 @@ func _on_furniture_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_furniture_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_furniture_pressed")
 	if _repl.size() > 0:
@@ -345,6 +362,7 @@ func InitializeRecipes(type):
 	if !_lib:
 		super(type)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-initializerecipes-pre", [type])
 	var _repl = _lib._get_hooks("interface-initializerecipes")
 	if _repl.size() > 0:
@@ -365,6 +383,7 @@ func UpdateProximity():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updateproximity-pre", [])
 	var _repl = _lib._get_hooks("interface-updateproximity")
 	if _repl.size() > 0:
@@ -385,6 +404,7 @@ func Craft(recipeData: RecipeData):
 	if !_lib:
 		super(recipeData)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-craft-pre", [recipeData])
 	var _repl = _lib._get_hooks("interface-craft")
 	if _repl.size() > 0:
@@ -405,6 +425,7 @@ func _on_notes_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_notes_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_notes_pressed")
 	if _repl.size() > 0:
@@ -425,6 +446,7 @@ func InitializeNotes():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-initializenotes-pre", [])
 	var _repl = _lib._get_hooks("interface-initializenotes")
 	if _repl.size() > 0:
@@ -445,6 +467,7 @@ func Map():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-map-pre", [])
 	var _repl = _lib._get_hooks("interface-map")
 	if _repl.size() > 0:
@@ -465,6 +488,7 @@ func _on_map_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_map_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_map_pressed")
 	if _repl.size() > 0:
@@ -485,6 +509,7 @@ func _on_focus_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_focus_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_focus_pressed")
 	if _repl.size() > 0:
@@ -505,6 +530,7 @@ func FocusMap():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-focusmap-pre", [])
 	var _repl = _lib._get_hooks("interface-focusmap")
 	if _repl.size() > 0:
@@ -525,6 +551,7 @@ func CasettePlayer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-casetteplayer-pre", [])
 	var _repl = _lib._get_hooks("interface-casetteplayer")
 	if _repl.size() > 0:
@@ -545,6 +572,7 @@ func _on_casette_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_casette_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_casette_pressed")
 	if _repl.size() > 0:
@@ -565,6 +593,7 @@ func _on_volume_slider_value_changed(value: float):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_volume_slider_value_changed-pre", [value])
 	var _repl = _lib._get_hooks("interface-_on_volume_slider_value_changed")
 	if _repl.size() > 0:
@@ -585,6 +614,7 @@ func _on_override_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_override_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("interface-_on_override_toggled")
 	if _repl.size() > 0:
@@ -605,6 +635,7 @@ func _on_audio_finished():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_audio_finished-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_audio_finished")
 	if _repl.size() > 0:
@@ -625,6 +656,7 @@ func InitializeCasette(casette: CasetteData):
 	if !_lib:
 		super(casette)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-initializecasette-pre", [casette])
 	var _repl = _lib._get_hooks("interface-initializecasette")
 	if _repl.size() > 0:
@@ -645,6 +677,7 @@ func CasetteConsumption(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-casetteconsumption-pre", [delta])
 	var _repl = _lib._get_hooks("interface-casetteconsumption")
 	if _repl.size() > 0:
@@ -665,6 +698,7 @@ func PlayCasette(casetteTrack: AudioStreamOggVorbis):
 	if !_lib:
 		super(casetteTrack)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playcasette-pre", [casetteTrack])
 	var _repl = _lib._get_hooks("interface-playcasette")
 	if _repl.size() > 0:
@@ -685,6 +719,7 @@ func ResetCasette():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-resetcasette-pre", [])
 	var _repl = _lib._get_hooks("interface-resetcasette")
 	if _repl.size() > 0:
@@ -705,6 +740,7 @@ func LoadDefaultType(type: int):
 	if !_lib:
 		super(type)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-loaddefaulttype-pre", [type])
 	var _repl = _lib._get_hooks("interface-loaddefaulttype")
 	if _repl.size() > 0:
@@ -725,6 +761,7 @@ func LoadCasetteVolume(value: float):
 	if !_lib:
 		super(value)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-loadcasettevolume-pre", [value])
 	var _repl = _lib._get_hooks("interface-loadcasettevolume")
 	if _repl.size() > 0:
@@ -745,6 +782,7 @@ func LoadCasetteOverride(override: bool):
 	if !_lib:
 		super(override)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-loadcasetteoverride-pre", [override])
 	var _repl = _lib._get_hooks("interface-loadcasetteoverride")
 	if _repl.size() > 0:
@@ -765,6 +803,7 @@ func LoadDefaultTool(tool: int):
 	if !_lib:
 		super(tool)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-loaddefaulttool-pre", [tool])
 	var _repl = _lib._get_hooks("interface-loaddefaulttool")
 	if _repl.size() > 0:
@@ -785,6 +824,7 @@ func HideAllTools():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-hidealltools-pre", [])
 	var _repl = _lib._get_hooks("interface-hidealltools")
 	if _repl.size() > 0:
@@ -805,6 +845,7 @@ func DisableTools():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-disabletools-pre", [])
 	var _repl = _lib._get_hooks("interface-disabletools")
 	if _repl.size() > 0:
@@ -825,6 +866,7 @@ func EnableTools():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-enabletools-pre", [])
 	var _repl = _lib._get_hooks("interface-enabletools")
 	if _repl.size() > 0:
@@ -845,6 +887,7 @@ func UpdateContainerGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updatecontainergrid-pre", [])
 	var _repl = _lib._get_hooks("interface-updatecontainergrid")
 	if _repl.size() > 0:
@@ -865,6 +908,7 @@ func FillContainerGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-fillcontainergrid-pre", [])
 	var _repl = _lib._get_hooks("interface-fillcontainergrid")
 	if _repl.size() > 0:
@@ -885,6 +929,7 @@ func ClearContainerGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-clearcontainergrid-pre", [])
 	var _repl = _lib._get_hooks("interface-clearcontainergrid")
 	if _repl.size() > 0:
@@ -905,6 +950,7 @@ func StorageContainerGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-storagecontainergrid-pre", [])
 	var _repl = _lib._get_hooks("interface-storagecontainergrid")
 	if _repl.size() > 0:
@@ -925,6 +971,7 @@ func UpdateTraderInfo():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updatetraderinfo-pre", [])
 	var _repl = _lib._get_hooks("interface-updatetraderinfo")
 	if _repl.size() > 0:
@@ -945,6 +992,7 @@ func FillSupplyGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-fillsupplygrid-pre", [])
 	var _repl = _lib._get_hooks("interface-fillsupplygrid")
 	if _repl.size() > 0:
@@ -965,6 +1013,7 @@ func ClearSupplyGrid():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-clearsupplygrid-pre", [])
 	var _repl = _lib._get_hooks("interface-clearsupplygrid")
 	if _repl.size() > 0:
@@ -985,6 +1034,7 @@ func Resupply():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-resupply-pre", [])
 	var _repl = _lib._get_hooks("interface-resupply")
 	if _repl.size() > 0:
@@ -1005,6 +1055,7 @@ func TradeSelection():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-tradeselection-pre", [])
 	var _repl = _lib._get_hooks("interface-tradeselection")
 	if _repl.size() > 0:
@@ -1025,6 +1076,7 @@ func ResetTrading():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-resettrading-pre", [])
 	var _repl = _lib._get_hooks("interface-resettrading")
 	if _repl.size() > 0:
@@ -1045,6 +1097,7 @@ func CalculateDeal():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-calculatedeal-pre", [])
 	var _repl = _lib._get_hooks("interface-calculatedeal")
 	if _repl.size() > 0:
@@ -1065,6 +1118,7 @@ func CompleteDeal():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-completedeal-pre", [])
 	var _repl = _lib._get_hooks("interface-completedeal")
 	if _repl.size() > 0:
@@ -1085,6 +1139,7 @@ func _on_reset_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_reset_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_reset_pressed")
 	if _repl.size() > 0:
@@ -1105,6 +1160,7 @@ func _on_accept_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_accept_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_accept_pressed")
 	if _repl.size() > 0:
@@ -1125,6 +1181,7 @@ func _on_supply_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_supply_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_supply_pressed")
 	if _repl.size() > 0:
@@ -1145,6 +1202,7 @@ func _on_tasks_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-_on_tasks_pressed-pre", [])
 	var _repl = _lib._get_hooks("interface-_on_tasks_pressed")
 	if _repl.size() > 0:
@@ -1165,6 +1223,7 @@ func InitializeTasks():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-initializetasks-pre", [])
 	var _repl = _lib._get_hooks("interface-initializetasks")
 	if _repl.size() > 0:
@@ -1185,6 +1244,7 @@ func StartInput(target):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-startinput-pre", [target])
 	var _repl = _lib._get_hooks("interface-startinput")
 	if _repl.size() > 0:
@@ -1205,6 +1265,7 @@ func ResetInput():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-resetinput-pre", [])
 	var _repl = _lib._get_hooks("interface-resetinput")
 	if _repl.size() > 0:
@@ -1225,6 +1286,7 @@ func InputSelection():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-inputselection-pre", [])
 	var _repl = _lib._get_hooks("interface-inputselection")
 	if _repl.size() > 0:
@@ -1245,6 +1307,7 @@ func Complete(data: Resource):
 	if !_lib:
 		super(data)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-complete-pre", [data])
 	var _repl = _lib._get_hooks("interface-complete")
 	if _repl.size() > 0:
@@ -1265,6 +1328,7 @@ func RepairInputItems():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-repairinputitems-pre", [])
 	var _repl = _lib._get_hooks("interface-repairinputitems")
 	if _repl.size() > 0:
@@ -1285,6 +1349,7 @@ func DestroyInputItems(data: Resource):
 	if !_lib:
 		super(data)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-destroyinputitems-pre", [data])
 	var _repl = _lib._get_hooks("interface-destroyinputitems")
 	if _repl.size() > 0:
@@ -1305,6 +1370,7 @@ func GetOutputItems():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-getoutputitems-pre", [])
 	var _repl = _lib._get_hooks("interface-getoutputitems")
 	if _repl.size() > 0:
@@ -1325,6 +1391,7 @@ func LoadGridItem(slotData, targetGrid, gridPosition):
 	if !_lib:
 		super(slotData, targetGrid, gridPosition)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-loadgriditem-pre", [slotData, targetGrid, gridPosition])
 	var _repl = _lib._get_hooks("interface-loadgriditem")
 	if _repl.size() > 0:
@@ -1345,6 +1412,7 @@ func LoadSlotItem(slotData, slotName):
 	if !_lib:
 		super(slotData, slotName)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-loadslotitem-pre", [slotData, slotName])
 	var _repl = _lib._get_hooks("interface-loadslotitem")
 	if _repl.size() > 0:
@@ -1364,6 +1432,7 @@ func Create(slotData, targetGrid, useDrop):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData, targetGrid, useDrop)
+	_lib._caller = self
 	_lib._dispatch("interface-create-pre", [slotData, targetGrid, useDrop])
 	var _result
 	var _repl = _lib._get_hooks("interface-create")
@@ -1387,6 +1456,7 @@ func AutoStack(slotData, targetGrid):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData, targetGrid)
+	_lib._caller = self
 	_lib._dispatch("interface-autostack-pre", [slotData, targetGrid])
 	var _result
 	var _repl = _lib._get_hooks("interface-autostack")
@@ -1411,6 +1481,7 @@ func Grab():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-grab-pre", [])
 	var _repl = _lib._get_hooks("interface-grab")
 	if _repl.size() > 0:
@@ -1431,6 +1502,7 @@ func Release():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-release-pre", [])
 	var _repl = _lib._get_hooks("interface-release")
 	if _repl.size() > 0:
@@ -1451,6 +1523,7 @@ func Return(target):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-return-pre", [target])
 	var _repl = _lib._get_hooks("interface-return")
 	if _repl.size() > 0:
@@ -1471,6 +1544,7 @@ func Rotate(target):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-rotate-pre", [target])
 	var _repl = _lib._get_hooks("interface-rotate")
 	if _repl.size() > 0:
@@ -1491,6 +1565,7 @@ func Drop(target):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-drop-pre", [target])
 	var _repl = _lib._get_hooks("interface-drop")
 	if _repl.size() > 0:
@@ -1511,6 +1586,7 @@ func Drag():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-drag-pre", [])
 	var _repl = _lib._get_hooks("interface-drag")
 	if _repl.size() > 0:
@@ -1531,6 +1607,7 @@ func Equip(targetItem, targetSlot):
 	if !_lib:
 		super(targetItem, targetSlot)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-equip-pre", [targetItem, targetSlot])
 	var _repl = _lib._get_hooks("interface-equip")
 	if _repl.size() > 0:
@@ -1550,6 +1627,7 @@ func Unequip(targetSlot):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(targetSlot)
+	_lib._caller = self
 	_lib._dispatch("interface-unequip-pre", [targetSlot])
 	var _result
 	var _repl = _lib._get_hooks("interface-unequip")
@@ -1574,6 +1652,7 @@ func GridSwap():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-gridswap-pre", [])
 	var _repl = _lib._get_hooks("interface-gridswap")
 	if _repl.size() > 0:
@@ -1594,6 +1673,7 @@ func SlotSwap():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-slotswap-pre", [])
 	var _repl = _lib._get_hooks("interface-slotswap")
 	if _repl.size() > 0:
@@ -1614,6 +1694,7 @@ func Combine(targetItem):
 	if !_lib:
 		super(targetItem)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-combine-pre", [targetItem])
 	var _repl = _lib._get_hooks("interface-combine")
 	if _repl.size() > 0:
@@ -1634,6 +1715,7 @@ func FastTransfer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-fasttransfer-pre", [])
 	var _repl = _lib._get_hooks("interface-fasttransfer")
 	if _repl.size() > 0:
@@ -1654,6 +1736,7 @@ func FastEquip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-fastequip-pre", [])
 	var _repl = _lib._get_hooks("interface-fastequip")
 	if _repl.size() > 0:
@@ -1674,6 +1757,7 @@ func FastDrop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-fastdrop-pre", [])
 	var _repl = _lib._get_hooks("interface-fastdrop")
 	if _repl.size() > 0:
@@ -1694,6 +1778,7 @@ func ShowContext():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-showcontext-pre", [])
 	var _repl = _lib._get_hooks("interface-showcontext")
 	if _repl.size() > 0:
@@ -1714,6 +1799,7 @@ func HideContext():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-hidecontext-pre", [])
 	var _repl = _lib._get_hooks("interface-hidecontext")
 	if _repl.size() > 0:
@@ -1734,6 +1820,7 @@ func ContextEquip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextequip-pre", [])
 	var _repl = _lib._get_hooks("interface-contextequip")
 	if _repl.size() > 0:
@@ -1754,6 +1841,7 @@ func ContextUnequip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextunequip-pre", [])
 	var _repl = _lib._get_hooks("interface-contextunequip")
 	if _repl.size() > 0:
@@ -1774,6 +1862,7 @@ func ContextSplit():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextsplit-pre", [])
 	var _repl = _lib._get_hooks("interface-contextsplit")
 	if _repl.size() > 0:
@@ -1794,6 +1883,7 @@ func ContextTake():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contexttake-pre", [])
 	var _repl = _lib._get_hooks("interface-contexttake")
 	if _repl.size() > 0:
@@ -1814,6 +1904,7 @@ func ContextDrop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextdrop-pre", [])
 	var _repl = _lib._get_hooks("interface-contextdrop")
 	if _repl.size() > 0:
@@ -1834,6 +1925,7 @@ func ContextPlace():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextplace-pre", [])
 	var _repl = _lib._get_hooks("interface-contextplace")
 	if _repl.size() > 0:
@@ -1854,6 +1946,7 @@ func ContextDestroy():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextdestroy-pre", [])
 	var _repl = _lib._get_hooks("interface-contextdestroy")
 	if _repl.size() > 0:
@@ -1874,6 +1967,7 @@ func ContextTransfer():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contexttransfer-pre", [])
 	var _repl = _lib._get_hooks("interface-contexttransfer")
 	if _repl.size() > 0:
@@ -1894,6 +1988,7 @@ func ContextSleep():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextsleep-pre", [])
 	var _repl = _lib._get_hooks("interface-contextsleep")
 	if _repl.size() > 0:
@@ -1914,6 +2009,7 @@ func ContextRemove(nestedIndex):
 	if !_lib:
 		super(nestedIndex)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextremove-pre", [nestedIndex])
 	var _repl = _lib._get_hooks("interface-contextremove")
 	if _repl.size() > 0:
@@ -1934,6 +2030,7 @@ func ContextUse():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextuse-pre", [])
 	var _repl = _lib._get_hooks("interface-contextuse")
 	if _repl.size() > 0:
@@ -1954,6 +2051,7 @@ func ContextUnload():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-contextunload-pre", [])
 	var _repl = _lib._get_hooks("interface-contextunload")
 	if _repl.size() > 0:
@@ -1974,6 +2072,7 @@ func Use(targetItem, targetGrid):
 	if !_lib:
 		super(targetItem, targetGrid)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-use-pre", [targetItem, targetGrid])
 	var _repl = _lib._get_hooks("interface-use")
 	if _repl.size() > 0:
@@ -1994,6 +2093,7 @@ func Charge(targetItem, sourceItem):
 	if !_lib:
 		super(targetItem, sourceItem)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-charge-pre", [targetItem, sourceItem])
 	var _repl = _lib._get_hooks("interface-charge")
 	if _repl.size() > 0:
@@ -2014,6 +2114,7 @@ func Load(targetItem, sourceItem):
 	if !_lib:
 		super(targetItem, sourceItem)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-load-pre", [targetItem, sourceItem])
 	var _repl = _lib._get_hooks("interface-load")
 	if _repl.size() > 0:
@@ -2034,6 +2135,7 @@ func UnloadMagazine(targetItem, targetGrid):
 	if !_lib:
 		super(targetItem, targetGrid)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-unloadmagazine-pre", [targetItem, targetGrid])
 	var _repl = _lib._get_hooks("interface-unloadmagazine")
 	if _repl.size() > 0:
@@ -2054,6 +2156,7 @@ func UnloadWeapon(targetItem, targetGrid):
 	if !_lib:
 		super(targetItem, targetGrid)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-unloadweapon-pre", [targetItem, targetGrid])
 	var _repl = _lib._get_hooks("interface-unloadweapon")
 	if _repl.size() > 0:
@@ -2074,6 +2177,7 @@ func ChangeMagazine(targetSlot):
 	if !_lib:
 		super(targetSlot)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-changemagazine-pre", [targetSlot])
 	var _repl = _lib._get_hooks("interface-changemagazine")
 	if _repl.size() > 0:
@@ -2093,6 +2197,7 @@ func PlateCheck(penetration: int):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(penetration)
+	_lib._caller = self
 	_lib._dispatch("interface-platecheck-pre", [penetration])
 	var _result
 	var _repl = _lib._get_hooks("interface-platecheck")
@@ -2116,6 +2221,7 @@ func HelmetCheck(penetration: int):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(penetration)
+	_lib._caller = self
 	_lib._dispatch("interface-helmetcheck-pre", [penetration])
 	var _result
 	var _repl = _lib._get_hooks("interface-helmetcheck")
@@ -2140,6 +2246,7 @@ func ItemEffects(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-itemeffects-pre", [delta])
 	var _repl = _lib._get_hooks("interface-itemeffects")
 	if _repl.size() > 0:
@@ -2160,6 +2267,7 @@ func Freeze(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-freeze-pre", [delta])
 	var _repl = _lib._get_hooks("interface-freeze")
 	if _repl.size() > 0:
@@ -2180,6 +2288,7 @@ func Melt(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-melt-pre", [delta])
 	var _repl = _lib._get_hooks("interface-melt")
 	if _repl.size() > 0:
@@ -2200,6 +2309,7 @@ func Hover():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-hover-pre", [])
 	var _repl = _lib._get_hooks("interface-hover")
 	if _repl.size() > 0:
@@ -2220,6 +2330,7 @@ func Highlight():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-highlight-pre", [])
 	var _repl = _lib._get_hooks("interface-highlight")
 	if _repl.size() > 0:
@@ -2240,6 +2351,7 @@ func AddToCatalog(itemData, storage):
 	if !_lib:
 		super(itemData, storage)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-addtocatalog-pre", [itemData, storage])
 	var _repl = _lib._get_hooks("interface-addtocatalog")
 	if _repl.size() > 0:
@@ -2260,6 +2372,7 @@ func DisplayTime():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-displaytime-pre", [])
 	var _repl = _lib._get_hooks("interface-displaytime")
 	if _repl.size() > 0:
@@ -2280,6 +2393,7 @@ func Sleep(sleepItem):
 	if !_lib:
 		super(sleepItem)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-sleep-pre", [sleepItem])
 	var _repl = _lib._get_hooks("interface-sleep")
 	if _repl.size() > 0:
@@ -2300,6 +2414,7 @@ func UpdateSimulation(sleepTime):
 	if !_lib:
 		super(sleepTime)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-updatesimulation-pre", [sleepTime])
 	var _repl = _lib._get_hooks("interface-updatesimulation")
 	if _repl.size() > 0:
@@ -2320,6 +2435,7 @@ func Reset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-reset-pre", [])
 	var _repl = _lib._get_hooks("interface-reset")
 	if _repl.size() > 0:
@@ -2339,6 +2455,7 @@ func CombineCheck(targetItem, combineItem):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(targetItem, combineItem)
+	_lib._caller = self
 	_lib._dispatch("interface-combinecheck-pre", [targetItem, combineItem])
 	var _result
 	var _repl = _lib._get_hooks("interface-combinecheck")
@@ -2362,6 +2479,7 @@ func TetrisCheck(A, B):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(A, B)
+	_lib._caller = self
 	_lib._dispatch("interface-tetrischeck-pre", [A, B])
 	var _result
 	var _repl = _lib._get_hooks("interface-tetrischeck")
@@ -2385,6 +2503,7 @@ func GetMagazine(weaponData, weaponSlot, swapMagazine):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(weaponData, weaponSlot, swapMagazine)
+	_lib._caller = self
 	_lib._dispatch("interface-getmagazine-pre", [weaponData, weaponSlot, swapMagazine])
 	var _result
 	var _repl = _lib._get_hooks("interface-getmagazine")
@@ -2408,6 +2527,7 @@ func GetAmmo(weaponData):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(weaponData)
+	_lib._caller = self
 	_lib._dispatch("interface-getammo-pre", [weaponData])
 	var _result
 	var _repl = _lib._get_hooks("interface-getammo")
@@ -2431,6 +2551,7 @@ func AutoPlace(targetItem, targetGrid, sourceGrid, usedrop):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(targetItem, targetGrid, sourceGrid, usedrop)
+	_lib._caller = self
 	_lib._dispatch("interface-autoplace-pre", [targetItem, targetGrid, sourceGrid, usedrop])
 	var _result
 	var _repl = _lib._get_hooks("interface-autoplace")
@@ -2454,6 +2575,7 @@ func GetHoverItem():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("interface-gethoveritem-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("interface-gethoveritem")
@@ -2477,6 +2599,7 @@ func GetHoverGrid():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("interface-gethovergrid-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("interface-gethovergrid")
@@ -2500,6 +2623,7 @@ func GetHoverSlot():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("interface-gethoverslot-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("interface-gethoverslot")
@@ -2523,6 +2647,7 @@ func GetHoverEquipment():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("interface-gethoverequipment-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("interface-gethoverequipment")
@@ -2546,6 +2671,7 @@ func GetHoverInfo():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("interface-gethoverinfo-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("interface-gethoverinfo")
@@ -2570,6 +2696,7 @@ func PlayUse(itemData: ItemData):
 	if !_lib:
 		super(itemData)
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playuse-pre", [itemData])
 	var _repl = _lib._get_hooks("interface-playuse")
 	if _repl.size() > 0:
@@ -2590,6 +2717,7 @@ func PlayDrop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playdrop-pre", [])
 	var _repl = _lib._get_hooks("interface-playdrop")
 	if _repl.size() > 0:
@@ -2610,6 +2738,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playclick-pre", [])
 	var _repl = _lib._get_hooks("interface-playclick")
 	if _repl.size() > 0:
@@ -2630,6 +2759,7 @@ func PlayError():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playerror-pre", [])
 	var _repl = _lib._get_hooks("interface-playerror")
 	if _repl.size() > 0:
@@ -2650,6 +2780,7 @@ func PlayEquip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playequip-pre", [])
 	var _repl = _lib._get_hooks("interface-playequip")
 	if _repl.size() > 0:
@@ -2670,6 +2801,7 @@ func PlayUnequip():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playunequip-pre", [])
 	var _repl = _lib._get_hooks("interface-playunequip")
 	if _repl.size() > 0:
@@ -2690,6 +2822,7 @@ func PlayAttach():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playattach-pre", [])
 	var _repl = _lib._get_hooks("interface-playattach")
 	if _repl.size() > 0:
@@ -2710,6 +2843,7 @@ func PlayStack():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playstack-pre", [])
 	var _repl = _lib._get_hooks("interface-playstack")
 	if _repl.size() > 0:
@@ -2730,6 +2864,7 @@ func PlayArmorBreak():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playarmorbreak-pre", [])
 	var _repl = _lib._get_hooks("interface-playarmorbreak")
 	if _repl.size() > 0:
@@ -2750,6 +2885,7 @@ func PlaySleep():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playsleep-pre", [])
 	var _repl = _lib._get_hooks("interface-playsleep")
 	if _repl.size() > 0:
@@ -2770,6 +2906,7 @@ func PlayTransition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("interface-playtransition-pre", [])
 	var _repl = _lib._get_hooks("interface-playtransition")
 	if _repl.size() > 0:

@@ -5,6 +5,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("placer-_input-pre", [event])
 	var _repl = _lib._get_hooks("placer-_input")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("placer-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("placer-_physics_process")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func Collided(body: Node3D):
 	if !_lib:
 		super(body)
 		return
+	_lib._caller = self
 	_lib._dispatch("placer-collided-pre", [body])
 	var _repl = _lib._get_hooks("placer-collided")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func ContextPlace(target: Node3D):
 	if !_lib:
 		super(target)
 		return
+	_lib._caller = self
 	_lib._dispatch("placer-contextplace-pre", [target])
 	var _repl = _lib._get_hooks("placer-contextplace")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func AttachAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("placer-attachaudio-pre", [])
 	var _repl = _lib._get_hooks("placer-attachaudio")
 	if _repl.size() > 0:

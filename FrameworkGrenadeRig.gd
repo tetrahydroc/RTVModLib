@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-_ready-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(_event):
 	if !_lib:
 		super(_event)
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-_input-pre", [_event])
 	var _repl = _lib._get_hooks("grenaderig-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ThrowHighPrepared():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-throwhighprepared-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-throwhighprepared")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func ThrowLowPrepared():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-throwlowprepared-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-throwlowprepared")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func ThrowHighExecute():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-throwhighexecute-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-throwhighexecute")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func ThrowLowExecute():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-throwlowexecute-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-throwlowexecute")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func ThrowFinished():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-throwfinished-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-throwfinished")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func PlayThrowPrepare():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playthrowprepare-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playthrowprepare")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func PlayThrowHigh():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playthrowhigh-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playthrowhigh")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func PlayThrowLow():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playthrowlow-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playthrowlow")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func PlayPinRemove():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playpinremove-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playpinremove")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func PlayPinAttach():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playpinattach-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playpinattach")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func PlayHandleRelease():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playhandlerelease-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playhandlerelease")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func PlayHandleDrop():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("grenaderig-playhandledrop-pre", [])
 	var _repl = _lib._get_hooks("grenaderig-playhandledrop")
 	if _repl.size() > 0:

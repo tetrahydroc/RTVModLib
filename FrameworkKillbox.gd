@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("killbox-_ready-pre", [])
 	var _repl = _lib._get_hooks("killbox-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("killbox-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("killbox-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func HandleItem(item):
 	if !_lib:
 		super(item)
 		return
+	_lib._caller = self
 	_lib._dispatch("killbox-handleitem-pre", [item])
 	var _repl = _lib._get_hooks("killbox-handleitem")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func HandleController(controller):
 	if !_lib:
 		super(controller)
 		return
+	_lib._caller = self
 	_lib._dispatch("killbox-handlecontroller-pre", [controller])
 	var _repl = _lib._get_hooks("killbox-handlecontroller")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func PlayTeleport():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("killbox-playteleport-pre", [])
 	var _repl = _lib._get_hooks("killbox-playteleport")
 	if _repl.size() > 0:

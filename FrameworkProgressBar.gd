@@ -5,6 +5,7 @@ func Start(craftRecipe: RecipeData):
 	if !_lib:
 		super(craftRecipe)
 		return
+	_lib._caller = self
 	_lib._dispatch("progressbar-start-pre", [craftRecipe])
 	var _repl = _lib._get_hooks("progressbar-start")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("progressbar-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("progressbar-_physics_process")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func _on_timer_timeout():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("progressbar-_on_timer_timeout-pre", [])
 	var _repl = _lib._get_hooks("progressbar-_on_timer_timeout")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func PlayCrafting():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("progressbar-playcrafting-pre", [])
 	var _repl = _lib._get_hooks("progressbar-playcrafting")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func PlayAttach():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("progressbar-playattach-pre", [])
 	var _repl = _lib._get_hooks("progressbar-playattach")
 	if _repl.size() > 0:

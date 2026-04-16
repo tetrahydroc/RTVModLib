@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("lootsimulation-_ready-pre", [])
 	var _repl = _lib._get_hooks("lootsimulation-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func ClearBuckets():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootsimulation-clearbuckets-pre", [])
 	var _repl = _lib._get_hooks("lootsimulation-clearbuckets")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func FillBuckets():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootsimulation-fillbuckets-pre", [])
 	var _repl = _lib._get_hooks("lootsimulation-fillbuckets")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func FillBucketsCustom():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootsimulation-fillbucketscustom-pre", [])
 	var _repl = _lib._get_hooks("lootsimulation-fillbucketscustom")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func GenerateLoot():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootsimulation-generateloot-pre", [])
 	var _repl = _lib._get_hooks("lootsimulation-generateloot")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func SpawnItems():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("lootsimulation-spawnitems-pre", [])
 	var _repl = _lib._get_hooks("lootsimulation-spawnitems")
 	if _repl.size() > 0:

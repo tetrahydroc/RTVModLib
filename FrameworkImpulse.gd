@@ -5,6 +5,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("impulse-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("impulse-_physics_process")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func JumpKick(multiplier):
 	if !_lib:
 		super(multiplier)
 		return
+	_lib._caller = self
 	_lib._dispatch("impulse-jumpkick-pre", [multiplier])
 	var _repl = _lib._get_hooks("impulse-jumpkick")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func LandKick(multiplier):
 	if !_lib:
 		super(multiplier)
 		return
+	_lib._caller = self
 	_lib._dispatch("impulse-landkick-pre", [multiplier])
 	var _repl = _lib._get_hooks("impulse-landkick")
 	if _repl.size() > 0:

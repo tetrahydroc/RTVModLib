@@ -42,7 +42,6 @@ var KNOWN_FRAMEWORKS: Dictionary = {
 	"effects": "res://RTVModLib/FrameworkEffects.gd",
 	"event": "res://RTVModLib/FrameworkEvent.gd",
 	"eventsystem": "res://RTVModLib/FrameworkEventSystem.gd",
-	"explosion": "res://RTVModLib/FrameworkExplosion.gd",
 	"field": "res://RTVModLib/FrameworkField.gd",
 	"fire": "res://RTVModLib/FrameworkFire.gd",
 	"fish": "res://RTVModLib/FrameworkFish.gd",
@@ -89,8 +88,6 @@ var KNOWN_FRAMEWORKS: Dictionary = {
 	"lure": "res://RTVModLib/FrameworkLure.gd",
 	"maptool": "res://RTVModLib/FrameworkMapTool.gd",
 	"menu": "res://RTVModLib/FrameworkMenu.gd",
-	"message": "res://RTVModLib/FrameworkMessage.gd",
-	"mine": "res://RTVModLib/FrameworkMine.gd",
 	"missilespawner": "res://RTVModLib/FrameworkMissileSpawner.gd",
 	"mode": "res://RTVModLib/FrameworkMode.gd",
 	"muzzleflash": "res://RTVModLib/FrameworkMuzzleFlash.gd",
@@ -217,7 +214,12 @@ func _register_override(modded_path: String):
 		print("RTVModLib: Empty parent path for " + modded_path)
 		return
 	_original_scripts[original_path] = parentScript
-	script.take_over_path(original_path)
+	# Skip take_over_path for scripts with class_name 
+	var global_name = parentScript.get_global_name()
+	if global_name == null or global_name == "" or global_name == &"":
+		script.take_over_path(original_path)
+	else:
+		print("RTVModLib: Skipping take_over_path for " + original_path + " (class_name: " + str(global_name) + ")")
 	_swap_map[original_path] = script
 
 func _on_node_added(node: Node):

@@ -5,6 +5,7 @@ func ExecuteClear(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("borderpoles-executeclear-pre", [_value])
 	var _repl = _lib._get_hooks("borderpoles-executeclear")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func ExecuteGeneratePoles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("borderpoles-executegeneratepoles-pre", [_value])
 	var _repl = _lib._get_hooks("borderpoles-executegeneratepoles")
 	if _repl.size() > 0:
@@ -45,6 +47,7 @@ func ExecuteGenerateWires(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("borderpoles-executegeneratewires-pre", [_value])
 	var _repl = _lib._get_hooks("borderpoles-executegeneratewires")
 	if _repl.size() > 0:
@@ -65,6 +68,7 @@ func ExecuteGenerateCollider(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("borderpoles-executegeneratecollider-pre", [_value])
 	var _repl = _lib._get_hooks("borderpoles-executegeneratecollider")
 	if _repl.size() > 0:
@@ -85,6 +89,7 @@ func ExecuteMergePoles(_value: bool):
 	if !_lib:
 		super(_value)
 		return
+	_lib._caller = self
 	_lib._dispatch("borderpoles-executemergepoles-pre", [_value])
 	var _repl = _lib._get_hooks("borderpoles-executemergepoles")
 	if _repl.size() > 0:
@@ -104,6 +109,7 @@ func GetTerrainHeight(targetX: float, targetZ: float, dataTool: MeshDataTool):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(targetX, targetZ, dataTool)
+	_lib._caller = self
 	_lib._dispatch("borderpoles-getterrainheight-pre", [targetX, targetZ, dataTool])
 	var _result
 	var _repl = _lib._get_hooks("borderpoles-getterrainheight")
@@ -128,6 +134,7 @@ func FoldHierarchy(node: Node):
 	if !_lib:
 		super(node)
 		return
+	_lib._caller = self
 	_lib._dispatch("borderpoles-foldhierarchy-pre", [node])
 	var _repl = _lib._get_hooks("borderpoles-foldhierarchy")
 	if _repl.size() > 0:

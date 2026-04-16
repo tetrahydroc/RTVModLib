@@ -5,6 +5,7 @@ func ApplyDamage(damage: float):
 	if !_lib:
 		super(damage)
 		return
+	_lib._caller = self
 	_lib._dispatch("hitbox-applydamage-pre", [damage])
 	var _repl = _lib._get_hooks("hitbox-applydamage")
 	if _repl.size() > 0:

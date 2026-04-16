@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_ready-pre", [])
 	var _repl = _lib._get_hooks("actions-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_physics_process-pre", [_delta])
 	var _repl = _lib._get_hooks("actions-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Show(slot: Slot):
 	if !_lib:
 		super(slot)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-show-pre", [slot])
 	var _repl = _lib._get_hooks("actions-show")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Hide():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-hide-pre", [])
 	var _repl = _lib._get_hooks("actions-hide")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func CalculateDistance():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-calculatedistance-pre", [])
 	var _repl = _lib._get_hooks("actions-calculatedistance")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func _on_blocker_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_blocker_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_blocker_gui_input")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func _on_panel_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_panel_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_panel_gui_input")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func _on_use_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_use_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_use_gui_input")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func _on_unload_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_unload_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_unload_gui_input")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func _on_split_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_split_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_split_gui_input")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func _on_take_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_take_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_take_gui_input")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func _on_equip_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_equip_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_equip_gui_input")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func _on_transfer_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_transfer_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_transfer_gui_input")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func _on_drop_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_drop_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_drop_gui_input")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func _on_place_gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_place_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("actions-_on_place_gui_input")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func _on_use_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_use_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_use_pressed")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func _on_unload_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_unload_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_unload_pressed")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func _on_split_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_split_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_split_pressed")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func _on_take_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_take_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_take_pressed")
 	if _repl.size() > 0:
@@ -391,6 +410,7 @@ func _on_equip_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_equip_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_equip_pressed")
 	if _repl.size() > 0:
@@ -411,6 +431,7 @@ func _on_transfer_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_transfer_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_transfer_pressed")
 	if _repl.size() > 0:
@@ -431,6 +452,7 @@ func _on_drop_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_drop_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_drop_pressed")
 	if _repl.size() > 0:
@@ -451,6 +473,7 @@ func _on_place_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-_on_place_pressed-pre", [])
 	var _repl = _lib._get_hooks("actions-_on_place_pressed")
 	if _repl.size() > 0:
@@ -471,6 +494,7 @@ func ClickAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("actions-clickaudio-pre", [])
 	var _repl = _lib._get_hooks("actions-clickaudio")
 	if _repl.size() > 0:

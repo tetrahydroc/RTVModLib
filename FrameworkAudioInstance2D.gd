@@ -5,6 +5,7 @@ func PlayInstance(audioEvent: AudioEvent):
 	if !_lib:
 		super(audioEvent)
 		return
+	_lib._caller = self
 	_lib._dispatch("audioinstance2d-playinstance-pre", [audioEvent])
 	var _repl = _lib._get_hooks("audioinstance2d-playinstance")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func _process(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audioinstance2d-_process-pre", [_delta])
 	var _repl = _lib._get_hooks("audioinstance2d-_process")
 	if _repl.size() > 0:

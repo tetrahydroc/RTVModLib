@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-_ready-pre", [])
 	var _repl = _lib._get_hooks("controller-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-_input-pre", [event])
 	var _repl = _lib._get_hooks("controller-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("controller-_physics_process")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func InputDirection(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-inputdirection-pre", [_delta])
 	var _repl = _lib._get_hooks("controller-inputdirection")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func MovementStates(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-movementstates-pre", [delta])
 	var _repl = _lib._get_hooks("controller-movementstates")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Movement(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-movement-pre", [delta])
 	var _repl = _lib._get_hooks("controller-movement")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Inertia(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-inertia-pre", [delta])
 	var _repl = _lib._get_hooks("controller-inertia")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Crouch(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-crouch-pre", [delta])
 	var _repl = _lib._get_hooks("controller-crouch")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func Jump(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-jump-pre", [_delta])
 	var _repl = _lib._get_hooks("controller-jump")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func Headbob(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-headbob-pre", [delta])
 	var _repl = _lib._get_hooks("controller-headbob")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func StartSwim():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-startswim-pre", [])
 	var _repl = _lib._get_hooks("controller-startswim")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func EndSwim():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-endswim-pre", [])
 	var _repl = _lib._get_hooks("controller-endswim")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func Swim(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-swim-pre", [delta])
 	var _repl = _lib._get_hooks("controller-swim")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func Fly():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-fly-pre", [])
 	var _repl = _lib._get_hooks("controller-fly")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func Gravity(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-gravity-pre", [delta])
 	var _repl = _lib._get_hooks("controller-gravity")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func Falling():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-falling-pre", [])
 	var _repl = _lib._get_hooks("controller-falling")
 	if _repl.size() > 0:
@@ -331,6 +347,7 @@ func Landing(_delta):
 	if !_lib:
 		super(_delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-landing-pre", [_delta])
 	var _repl = _lib._get_hooks("controller-landing")
 	if _repl.size() > 0:
@@ -351,6 +368,7 @@ func JumpImpulse(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-jumpimpulse-pre", [delta])
 	var _repl = _lib._get_hooks("controller-jumpimpulse")
 	if _repl.size() > 0:
@@ -371,6 +389,7 @@ func LandImpulse(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-landimpulse-pre", [delta])
 	var _repl = _lib._get_hooks("controller-landimpulse")
 	if _repl.size() > 0:
@@ -391,6 +410,7 @@ func CrouchImpulse(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-crouchimpulse-pre", [delta])
 	var _repl = _lib._get_hooks("controller-crouchimpulse")
 	if _repl.size() > 0:
@@ -411,6 +431,7 @@ func StandImpulse(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-standimpulse-pre", [delta])
 	var _repl = _lib._get_hooks("controller-standimpulse")
 	if _repl.size() > 0:
@@ -431,6 +452,7 @@ func SwimDetection():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-swimdetection-pre", [])
 	var _repl = _lib._get_hooks("controller-swimdetection")
 	if _repl.size() > 0:
@@ -451,6 +473,7 @@ func SurfaceDetection(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-surfacedetection-pre", [delta])
 	var _repl = _lib._get_hooks("controller-surfacedetection")
 	if _repl.size() > 0:
@@ -471,6 +494,7 @@ func PlayFootstep():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playfootstep-pre", [])
 	var _repl = _lib._get_hooks("controller-playfootstep")
 	if _repl.size() > 0:
@@ -491,6 +515,7 @@ func PlayFootstepJump():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playfootstepjump-pre", [])
 	var _repl = _lib._get_hooks("controller-playfootstepjump")
 	if _repl.size() > 0:
@@ -511,6 +536,7 @@ func PlayFootstepLand():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playfootstepland-pre", [])
 	var _repl = _lib._get_hooks("controller-playfootstepland")
 	if _repl.size() > 0:
@@ -531,6 +557,7 @@ func PlaySwimSurface():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playswimsurface-pre", [])
 	var _repl = _lib._get_hooks("controller-playswimsurface")
 	if _repl.size() > 0:
@@ -551,6 +578,7 @@ func PlaySwimSubmerged():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playswimsubmerged-pre", [])
 	var _repl = _lib._get_hooks("controller-playswimsubmerged")
 	if _repl.size() > 0:
@@ -571,6 +599,7 @@ func PlayMovementCloth():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playmovementcloth-pre", [])
 	var _repl = _lib._get_hooks("controller-playmovementcloth")
 	if _repl.size() > 0:
@@ -591,6 +620,7 @@ func PlayMovementGear():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("controller-playmovementgear-pre", [])
 	var _repl = _lib._get_hooks("controller-playmovementgear")
 	if _repl.size() > 0:

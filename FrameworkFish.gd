@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("fish-_ready-pre", [])
 	var _repl = _lib._get_hooks("fish-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fish-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("fish-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Sensor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fish-sensor-pre", [delta])
 	var _repl = _lib._get_hooks("fish-sensor")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Attract(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fish-attract-pre", [delta])
 	var _repl = _lib._get_hooks("fish-attract")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Swim(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("fish-swim-pre", [delta])
 	var _repl = _lib._get_hooks("fish-swim")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func GetRandomWaypoint():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("fish-getrandomwaypoint-pre", [])
 	var _repl = _lib._get_hooks("fish-getrandomwaypoint")
 	if _repl.size() > 0:

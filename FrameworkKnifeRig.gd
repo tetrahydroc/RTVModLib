@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-_ready-pre", [])
 	var _repl = _lib._get_hooks("kniferig-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _input(_event):
 	if !_lib:
 		super(_event)
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-_input-pre", [_event])
 	var _repl = _lib._get_hooks("kniferig-_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("kniferig-_physics_process")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func HitCheck():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-hitcheck-pre", [])
 	var _repl = _lib._get_hooks("kniferig-hitcheck")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func KnifeDecal(hitCollider, hitPoint, hitNormal, hitSurface):
 	if !_lib:
 		super(hitCollider, hitPoint, hitNormal, hitSurface)
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-knifedecal-pre", [hitCollider, hitPoint, hitNormal, hitSurface])
 	var _repl = _lib._get_hooks("kniferig-knifedecal")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func AttackFinished():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-attackfinished-pre", [])
 	var _repl = _lib._get_hooks("kniferig-attackfinished")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func SlashAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-slashaudio-pre", [])
 	var _repl = _lib._get_hooks("kniferig-slashaudio")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func StabAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-stabaudio-pre", [])
 	var _repl = _lib._get_hooks("kniferig-stabaudio")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func InspectStartAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-inspectstartaudio-pre", [])
 	var _repl = _lib._get_hooks("kniferig-inspectstartaudio")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func InspectEndAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-inspectendaudio-pre", [])
 	var _repl = _lib._get_hooks("kniferig-inspectendaudio")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func InspectTurnAudio():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-inspectturnaudio-pre", [])
 	var _repl = _lib._get_hooks("kniferig-inspectturnaudio")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func PlayInspectStart():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-playinspectstart-pre", [])
 	var _repl = _lib._get_hooks("kniferig-playinspectstart")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func PlayInspectRotate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-playinspectrotate-pre", [])
 	var _repl = _lib._get_hooks("kniferig-playinspectrotate")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func PlayInspectEnd():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("kniferig-playinspectend-pre", [])
 	var _repl = _lib._get_hooks("kniferig-playinspectend")
 	if _repl.size() > 0:

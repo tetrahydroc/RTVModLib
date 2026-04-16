@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-_ready-pre", [])
 	var _repl = _lib._get_hooks("loader-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func CreateValidator():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-createvalidator-pre", [])
 	var _repl = _lib._get_hooks("loader-createvalidator")
 	if _repl.size() > 0:
@@ -50,6 +52,7 @@ func ValidateID():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("loader-validateid-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("loader-validateid")
@@ -73,6 +76,7 @@ func ValidateShelter():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("loader-validateshelter-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("loader-validateshelter")
@@ -97,6 +101,7 @@ func FormatAll():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-formatall-pre", [])
 	var _repl = _lib._get_hooks("loader-formatall")
 	if _repl.size() > 0:
@@ -117,6 +122,7 @@ func FormatSave():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-formatsave-pre", [])
 	var _repl = _lib._get_hooks("loader-formatsave")
 	if _repl.size() > 0:
@@ -137,6 +143,7 @@ func LoadScene(scene: String):
 	if !_lib:
 		super(scene)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-loadscene-pre", [scene])
 	var _repl = _lib._get_hooks("loader-loadscene")
 	if _repl.size() > 0:
@@ -157,6 +164,7 @@ func LoadSceneRandom():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-loadscenerandom-pre", [])
 	var _repl = _lib._get_hooks("loader-loadscenerandom")
 	if _repl.size() > 0:
@@ -177,6 +185,7 @@ func NewGame(difficulty, season):
 	if !_lib:
 		super(difficulty, season)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-newgame-pre", [difficulty, season])
 	var _repl = _lib._get_hooks("loader-newgame")
 	if _repl.size() > 0:
@@ -197,6 +206,7 @@ func ResetCharacter():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-resetcharacter-pre", [])
 	var _repl = _lib._get_hooks("loader-resetcharacter")
 	if _repl.size() > 0:
@@ -217,6 +227,7 @@ func SaveCharacter():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-savecharacter-pre", [])
 	var _repl = _lib._get_hooks("loader-savecharacter")
 	if _repl.size() > 0:
@@ -237,6 +248,7 @@ func LoadCharacter():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-loadcharacter-pre", [])
 	var _repl = _lib._get_hooks("loader-loadcharacter")
 	if _repl.size() > 0:
@@ -257,6 +269,7 @@ func SaveWorld():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-saveworld-pre", [])
 	var _repl = _lib._get_hooks("loader-saveworld")
 	if _repl.size() > 0:
@@ -277,6 +290,7 @@ func LoadWorld():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-loadworld-pre", [])
 	var _repl = _lib._get_hooks("loader-loadworld")
 	if _repl.size() > 0:
@@ -297,6 +311,7 @@ func SaveShelter(targetShelter):
 	if !_lib:
 		super(targetShelter)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-saveshelter-pre", [targetShelter])
 	var _repl = _lib._get_hooks("loader-saveshelter")
 	if _repl.size() > 0:
@@ -317,6 +332,7 @@ func LoadShelter(targetShelter):
 	if !_lib:
 		super(targetShelter)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-loadshelter-pre", [targetShelter])
 	var _repl = _lib._get_hooks("loader-loadshelter")
 	if _repl.size() > 0:
@@ -336,6 +352,7 @@ func CheckShelterState(targetShelter):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(targetShelter)
+	_lib._caller = self
 	_lib._dispatch("loader-checkshelterstate-pre", [targetShelter])
 	var _result
 	var _repl = _lib._get_hooks("loader-checkshelterstate")
@@ -360,6 +377,7 @@ func UnlockShelter(targetShelter):
 	if !_lib:
 		super(targetShelter)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-unlockshelter-pre", [targetShelter])
 	var _repl = _lib._get_hooks("loader-unlockshelter")
 	if _repl.size() > 0:
@@ -380,6 +398,7 @@ func SaveTrader(trader: String):
 	if !_lib:
 		super(trader)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-savetrader-pre", [trader])
 	var _repl = _lib._get_hooks("loader-savetrader")
 	if _repl.size() > 0:
@@ -400,6 +419,7 @@ func LoadTrader(trader: String):
 	if !_lib:
 		super(trader)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-loadtrader-pre", [trader])
 	var _repl = _lib._get_hooks("loader-loadtrader")
 	if _repl.size() > 0:
@@ -420,6 +440,7 @@ func SaveTaskNotes(task: TaskData, add: bool):
 	if !_lib:
 		super(task, add)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-savetasknotes-pre", [task, add])
 	var _repl = _lib._get_hooks("loader-savetasknotes")
 	if _repl.size() > 0:
@@ -439,6 +460,7 @@ func LoadTaskNotes():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("loader-loadtasknotes-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("loader-loadtasknotes")
@@ -463,6 +485,7 @@ func UpdateProgression():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-updateprogression-pre", [])
 	var _repl = _lib._get_hooks("loader-updateprogression")
 	if _repl.size() > 0:
@@ -483,6 +506,7 @@ func Message(text: String, color: Color):
 	if !_lib:
 		super(text, color)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-message-pre", [text, color])
 	var _repl = _lib._get_hooks("loader-message")
 	if _repl.size() > 0:
@@ -503,6 +527,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("loader-_physics_process")
 	if _repl.size() > 0:
@@ -523,6 +548,7 @@ func FadeIn():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-fadein-pre", [])
 	var _repl = _lib._get_hooks("loader-fadein")
 	if _repl.size() > 0:
@@ -543,6 +569,7 @@ func FadeOut():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-fadeout-pre", [])
 	var _repl = _lib._get_hooks("loader-fadeout")
 	if _repl.size() > 0:
@@ -563,6 +590,7 @@ func FadeInLoading():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-fadeinloading-pre", [])
 	var _repl = _lib._get_hooks("loader-fadeinloading")
 	if _repl.size() > 0:
@@ -583,6 +611,7 @@ func FadeOutLoading():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-fadeoutloading-pre", [])
 	var _repl = _lib._get_hooks("loader-fadeoutloading")
 	if _repl.size() > 0:
@@ -603,6 +632,7 @@ func ShowLoadingScreen():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-showloadingscreen-pre", [])
 	var _repl = _lib._get_hooks("loader-showloadingscreen")
 	if _repl.size() > 0:
@@ -623,6 +653,7 @@ func HideLoadingScreen():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-hideloadingscreen-pre", [])
 	var _repl = _lib._get_hooks("loader-hideloadingscreen")
 	if _repl.size() > 0:
@@ -643,6 +674,7 @@ func ShowOverlay():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-showoverlay-pre", [])
 	var _repl = _lib._get_hooks("loader-showoverlay")
 	if _repl.size() > 0:
@@ -663,6 +695,7 @@ func HideOverlay():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-hideoverlay-pre", [])
 	var _repl = _lib._get_hooks("loader-hideoverlay")
 	if _repl.size() > 0:
@@ -683,6 +716,7 @@ func PlayTransition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-playtransition-pre", [])
 	var _repl = _lib._get_hooks("loader-playtransition")
 	if _repl.size() > 0:
@@ -703,6 +737,7 @@ func HideCursor():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-hidecursor-pre", [])
 	var _repl = _lib._get_hooks("loader-hidecursor")
 	if _repl.size() > 0:
@@ -723,6 +758,7 @@ func ShowCursor():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-showcursor-pre", [])
 	var _repl = _lib._get_hooks("loader-showcursor")
 	if _repl.size() > 0:
@@ -743,6 +779,7 @@ func Quit():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("loader-quit-pre", [])
 	var _repl = _lib._get_hooks("loader-quit")
 	if _repl.size() > 0:

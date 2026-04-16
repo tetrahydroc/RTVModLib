@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("police-_ready-pre", [])
 	var _repl = _lib._get_hooks("police-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func DeactivateLights():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("police-deactivatelights-pre", [])
 	var _repl = _lib._get_hooks("police-deactivatelights")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ActivateLights():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("police-activatelights-pre", [])
 	var _repl = _lib._get_hooks("police-activatelights")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("police-_physics_process")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func States(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-states-pre", [delta])
 	var _repl = _lib._get_hooks("police-states")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Drive(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-drive-pre", [delta])
 	var _repl = _lib._get_hooks("police-drive")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Detection():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("police-detection-pre", [])
 	var _repl = _lib._get_hooks("police-detection")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Spawn():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("police-spawn-pre", [])
 	var _repl = _lib._get_hooks("police-spawn")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func Audio(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-audio-pre", [delta])
 	var _repl = _lib._get_hooks("police-audio")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func Tires(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-tires-pre", [delta])
 	var _repl = _lib._get_hooks("police-tires")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func Suspension(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-suspension-pre", [delta])
 	var _repl = _lib._get_hooks("police-suspension")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func Wobble(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("police-wobble-pre", [delta])
 	var _repl = _lib._get_hooks("police-wobble")
 	if _repl.size() > 0:
@@ -250,6 +262,7 @@ func GetHiddenSpawn():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("police-gethiddenspawn-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("police-gethiddenspawn")

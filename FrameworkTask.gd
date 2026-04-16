@@ -5,6 +5,7 @@ func Initialize(task: TaskData, targetInterface):
 	if !_lib:
 		super(task, targetInterface)
 		return
+	_lib._caller = self
 	_lib._dispatch("task-initialize-pre", [task, targetInterface])
 	var _repl = _lib._get_hooks("task-initialize")
 	if _repl.size() > 0:
@@ -25,6 +26,7 @@ func InitializeNote(task: TaskData, targetInterface):
 	if !_lib:
 		super(task, targetInterface)
 		return
+	_lib._caller = self
 	_lib._dispatch("task-initializenote-pre", [task, targetInterface])
 	var _repl = _lib._get_hooks("task-initializenote")
 	if _repl.size() > 0:
@@ -44,6 +46,7 @@ func CreateInputString():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("task-createinputstring-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("task-createinputstring")
@@ -67,6 +70,7 @@ func CreateOutputString():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("task-createoutputstring-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("task-createoutputstring")
@@ -91,6 +95,7 @@ func _on_input_toggled(toggled_on: bool):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("task-_on_input_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("task-_on_input_toggled")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func _on_complete_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-_on_complete_pressed-pre", [])
 	var _repl = _lib._get_hooks("task-_on_complete_pressed")
 	if _repl.size() > 0:
@@ -130,6 +136,7 @@ func CanInput(slotData):
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super(slotData)
+	_lib._caller = self
 	_lib._dispatch("task-caninput-pre", [slotData])
 	var _result
 	var _repl = _lib._get_hooks("task-caninput")
@@ -154,6 +161,7 @@ func CanComplete():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-cancomplete-pre", [])
 	var _repl = _lib._get_hooks("task-cancomplete")
 	if _repl.size() > 0:
@@ -174,6 +182,7 @@ func ResetInput():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-resetinput-pre", [])
 	var _repl = _lib._get_hooks("task-resetinput")
 	if _repl.size() > 0:
@@ -194,6 +203,7 @@ func AddInputItem(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("task-addinputitem-pre", [slotData])
 	var _repl = _lib._get_hooks("task-addinputitem")
 	if _repl.size() > 0:
@@ -214,6 +224,7 @@ func RemoveInputItem(slotData):
 	if !_lib:
 		super(slotData)
 		return
+	_lib._caller = self
 	_lib._dispatch("task-removeinputitem-pre", [slotData])
 	var _repl = _lib._get_hooks("task-removeinputitem")
 	if _repl.size() > 0:
@@ -234,6 +245,7 @@ func _on_add_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-_on_add_pressed-pre", [])
 	var _repl = _lib._get_hooks("task-_on_add_pressed")
 	if _repl.size() > 0:
@@ -254,6 +266,7 @@ func _on_remove_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-_on_remove_pressed-pre", [])
 	var _repl = _lib._get_hooks("task-_on_remove_pressed")
 	if _repl.size() > 0:
@@ -274,6 +287,7 @@ func UpdateNoteButtons():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-updatenotebuttons-pre", [])
 	var _repl = _lib._get_hooks("task-updatenotebuttons")
 	if _repl.size() > 0:
@@ -294,6 +308,7 @@ func Default():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-default-pre", [])
 	var _repl = _lib._get_hooks("task-default")
 	if _repl.size() > 0:
@@ -314,6 +329,7 @@ func Selected():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-selected-pre", [])
 	var _repl = _lib._get_hooks("task-selected")
 	if _repl.size() > 0:
@@ -334,6 +350,7 @@ func Locked():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-locked-pre", [])
 	var _repl = _lib._get_hooks("task-locked")
 	if _repl.size() > 0:
@@ -354,6 +371,7 @@ func Completed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-completed-pre", [])
 	var _repl = _lib._get_hooks("task-completed")
 	if _repl.size() > 0:
@@ -374,6 +392,7 @@ func Note():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("task-note-pre", [])
 	var _repl = _lib._get_hooks("task-note")
 	if _repl.size() > 0:

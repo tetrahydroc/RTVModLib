@@ -5,6 +5,7 @@ func Reset():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("gamedata-reset-pre", [])
 	var _repl = _lib._get_hooks("gamedata-reset")
 	if _repl.size() > 0:

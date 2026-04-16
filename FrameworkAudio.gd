@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-_ready-pre", [])
 	var _repl = _lib._get_hooks("audio-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("audio-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Indoor(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-indoor-pre", [delta])
 	var _repl = _lib._get_hooks("audio-indoor")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Breathing(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-breathing-pre", [delta])
 	var _repl = _lib._get_hooks("audio-breathing")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func Heartbeat(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-heartbeat-pre", [delta])
 	var _repl = _lib._get_hooks("audio-heartbeat")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func Suffering(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-suffering-pre", [delta])
 	var _repl = _lib._get_hooks("audio-suffering")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Suffocating(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-suffocating-pre", [delta])
 	var _repl = _lib._get_hooks("audio-suffocating")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func Music(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-music-pre", [delta])
 	var _repl = _lib._get_hooks("audio-music")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func UpdateMusic():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("audio-updatemusic-pre", [])
 	var _repl = _lib._get_hooks("audio-updatemusic")
 	if _repl.size() > 0:
@@ -190,6 +199,7 @@ func GetRandomArea05Clip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getrandomarea05clip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getrandomarea05clip")
@@ -213,6 +223,7 @@ func GetRandomBorderZoneClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getrandomborderzoneclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getrandomborderzoneclip")
@@ -236,6 +247,7 @@ func GetRandomVostokClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getrandomvostokclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getrandomvostokclip")
@@ -259,6 +271,7 @@ func GetRandomShelterClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getrandomshelterclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getrandomshelterclip")
@@ -282,6 +295,7 @@ func GetNextArea05Clip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getnextarea05clip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getnextarea05clip")
@@ -305,6 +319,7 @@ func GetNextBorderZoneClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getnextborderzoneclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getnextborderzoneclip")
@@ -328,6 +343,7 @@ func GetNextVostokClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getnextvostokclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getnextvostokclip")
@@ -351,6 +367,7 @@ func GetNextShelterClip():
 	var _lib = Engine.get_meta("RTVModLib", null)
 	if !_lib:
 		return super()
+	_lib._caller = self
 	_lib._dispatch("audio-getnextshelterclip-pre", [])
 	var _result
 	var _repl = _lib._get_hooks("audio-getnextshelterclip")

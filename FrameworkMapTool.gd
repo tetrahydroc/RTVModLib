@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("maptool-_ready-pre", [])
 	var _repl = _lib._get_hooks("maptool-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _gui_input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("maptool-_gui_input-pre", [event])
 	var _repl = _lib._get_hooks("maptool-_gui_input")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func Zoom(factor: float, mouse_pos: Vector2):
 	if !_lib:
 		super(factor, mouse_pos)
 		return
+	_lib._caller = self
 	_lib._dispatch("maptool-zoom-pre", [factor, mouse_pos])
 	var _repl = _lib._get_hooks("maptool-zoom")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func Focus(marker: String):
 	if !_lib:
 		super(marker)
 		return
+	_lib._caller = self
 	_lib._dispatch("maptool-focus-pre", [marker])
 	var _repl = _lib._get_hooks("maptool-focus")
 	if _repl.size() > 0:

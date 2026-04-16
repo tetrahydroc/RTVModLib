@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_ready-pre", [])
 	var _repl = _lib._get_hooks("inputs-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func CreateActions():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-createactions-pre", [])
 	var _repl = _lib._get_hooks("inputs-createactions")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func ResetActions():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-resetactions-pre", [])
 	var _repl = _lib._get_hooks("inputs-resetactions")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func _on_input_pressed(button, action):
 	if !_lib:
 		super(button, action)
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_input_pressed-pre", [button, action])
 	var _repl = _lib._get_hooks("inputs-_on_input_pressed")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func _on_reset_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_reset_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_reset_pressed")
 	if _repl.size() > 0:
@@ -111,6 +116,7 @@ func _input(event):
 	if !_lib:
 		super(event)
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_input-pre", [event])
 	var _repl = _lib._get_hooks("inputs-_input")
 	if _repl.size() > 0:
@@ -131,6 +137,7 @@ func Deactivate():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-deactivate-pre", [])
 	var _repl = _lib._get_hooks("inputs-deactivate")
 	if _repl.size() > 0:
@@ -151,6 +158,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-playclick-pre", [])
 	var _repl = _lib._get_hooks("inputs-playclick")
 	if _repl.size() > 0:
@@ -171,6 +179,7 @@ func _on_normal_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_normal_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_normal_pressed")
 	if _repl.size() > 0:
@@ -191,6 +200,7 @@ func _on_inverted_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_inverted_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_inverted_pressed")
 	if _repl.size() > 0:
@@ -211,6 +221,7 @@ func _on_sprint_hold_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_sprint_hold_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_sprint_hold_pressed")
 	if _repl.size() > 0:
@@ -231,6 +242,7 @@ func _on_sprint_toggle_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_sprint_toggle_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_sprint_toggle_pressed")
 	if _repl.size() > 0:
@@ -251,6 +263,7 @@ func _on_lean_hold_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_lean_hold_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_lean_hold_pressed")
 	if _repl.size() > 0:
@@ -271,6 +284,7 @@ func _on_lean_toggle_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_lean_toggle_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_lean_toggle_pressed")
 	if _repl.size() > 0:
@@ -291,6 +305,7 @@ func _on_aim_hold_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_aim_hold_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_aim_hold_pressed")
 	if _repl.size() > 0:
@@ -311,6 +326,7 @@ func _on_aim_toggle_pressed():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("inputs-_on_aim_toggle_pressed-pre", [])
 	var _repl = _lib._get_hooks("inputs-_on_aim_toggle_pressed")
 	if _repl.size() > 0:

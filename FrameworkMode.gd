@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("mode-_ready-pre", [])
 	var _repl = _lib._get_hooks("mode-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _on_select_toggled(toggled_on):
 	if !_lib:
 		super(toggled_on)
 		return
+	_lib._caller = self
 	_lib._dispatch("mode-_on_select_toggled-pre", [toggled_on])
 	var _repl = _lib._get_hooks("mode-_on_select_toggled")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func PlayClick():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("mode-playclick-pre", [])
 	var _repl = _lib._get_hooks("mode-playclick")
 	if _repl.size() > 0:

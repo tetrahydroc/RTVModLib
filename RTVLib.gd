@@ -10,6 +10,9 @@ var _next_id: int = 1
 var _skip_super: bool = false
 var _seq: int = 0
 var _is_ready: bool = false
+## The node that triggered the current dispatch. Set before each _dispatch call.
+## Hook callbacks can read _lib._caller to get the source node.
+var _caller: Node = null
 
 func _ready():
 	Engine.set_meta("RTVModLib", self)

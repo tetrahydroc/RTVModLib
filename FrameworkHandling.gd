@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("handling-_ready-pre", [])
 	var _repl = _lib._get_hooks("handling-_ready")
 	if _repl.size() > 0:
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("handling-_physics_process-pre", [delta])
 	var _repl = _lib._get_hooks("handling-_physics_process")
 	if _repl.size() > 0:
@@ -51,6 +53,7 @@ func WeaponPosition():
 	if !_lib:
 		super()
 		return
+	_lib._caller = self
 	_lib._dispatch("handling-weaponposition-pre", [])
 	var _repl = _lib._get_hooks("handling-weaponposition")
 	if _repl.size() > 0:
@@ -71,6 +74,7 @@ func WeaponHandling(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("handling-weaponhandling-pre", [delta])
 	var _repl = _lib._get_hooks("handling-weaponhandling")
 	if _repl.size() > 0:
@@ -91,6 +95,7 @@ func BasicHandling(delta):
 	if !_lib:
 		super(delta)
 		return
+	_lib._caller = self
 	_lib._dispatch("handling-basichandling-pre", [delta])
 	var _repl = _lib._get_hooks("handling-basichandling")
 	if _repl.size() > 0:

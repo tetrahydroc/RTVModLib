@@ -8,6 +8,7 @@ func _ready():
 			super()
 			_rtv_ready_done = true
 		return
+	_lib._caller = self
 	_lib._dispatch("info-_ready-pre", [])
 	var _repl = _lib._get_hooks("info-_ready")
 	if _repl.size() > 0:
