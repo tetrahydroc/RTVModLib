@@ -3,10 +3,13 @@ extends Node
 # RTVModLib - Godot 4 Mod Framework Hook Library
 # Auto-generated - do not edit manually
 
+signal frameworks_ready
+
 var _hooks: Dictionary = {}
 var _next_id: int = 1
 var _skip_super: bool = false
 var _seq: int = 0
+var _is_ready: bool = false
 
 func _ready():
 	Engine.set_meta("RTVModLib", self)

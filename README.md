@@ -1,4 +1,5 @@
-# RTVModLib — Hook Framework for Road to Vostok
+# RTVModLib 
+## A Hook Framework for Road to Vostok
 
 RTVModLib provides a hook system for Road to Vostok mods, allowing multiple mods to intercept and modify game behavior without conflicting with each other.
 This is still very much a WIP framework, I would advise against using it until there is a release.
@@ -71,11 +72,16 @@ See `Main.gd` `KNOWN_FRAMEWORKS` for the complete list.
 var _lib = null
 
 func _ready():
-    # Wait for RTVModLib to initialize
-    await get_tree().create_timer(1.0).timeout
     if Engine.has_meta("RTVModLib"):
-        _lib = Engine.get_meta("RTVModLib")
-        _register_hooks()
+        var lib = Engine.get_meta("RTVModLib")
+        if lib._is_ready:
+            _on_lib_ready()
+        else:
+            lib.frameworks_ready.connect(_on_lib_ready)
+
+func _on_lib_ready():
+    _lib = Engine.get_meta("RTVModLib")
+    _register_hooks()
 
 func _register_hooks():
     # Pre-hook: runs BEFORE the original method
@@ -171,11 +177,17 @@ var _lib = null
 var _kills: Dictionary = {}  # ai_type -> count
 
 func _ready():
-    await get_tree().create_timer(1.0).timeout
     if Engine.has_meta("RTVModLib"):
-        _lib = Engine.get_meta("RTVModLib")
-        _lib.hook("ai-death-post", _on_ai_death, 50)
-        print("Kill Tracker: Loaded")
+        var lib = Engine.get_meta("RTVModLib")
+        if lib._is_ready:
+            _on_lib_ready()
+        else:
+            lib.frameworks_ready.connect(_on_lib_ready)
+
+func _on_lib_ready():
+    _lib = Engine.get_meta("RTVModLib")
+    _lib.hook("ai-death-post", _on_ai_death, 50)
+    print("Kill Tracker: Loaded")
 
 func _on_ai_death(direction = null, force = null):
     # AI.Death(direction, force) was called — an AI just died
@@ -207,10 +219,16 @@ extends Node
 var _lib = null
 
 func _ready():
-    await get_tree().create_timer(1.0).timeout
     if Engine.has_meta("RTVModLib"):
-        _lib = Engine.get_meta("RTVModLib")
-        _lib.hook("interface-calculatedeal-post", _modify_prices)
+        var lib = Engine.get_meta("RTVModLib")
+        if lib._is_ready:
+            _on_lib_ready()
+        else:
+            lib.frameworks_ready.connect(_on_lib_ready)
+
+func _on_lib_ready():
+    _lib = Engine.get_meta("RTVModLib")
+    _lib.hook("interface-calculatedeal-post", _modify_prices)
 
 func _modify_prices():
     # Runs after CalculateDeal — modify the displayed values
@@ -231,10 +249,16 @@ extends Node
 var _lib = null
 
 func _ready():
-    await get_tree().create_timer(1.0).timeout
     if Engine.has_meta("RTVModLib"):
-        _lib = Engine.get_meta("RTVModLib")
-        var id = _lib.hook("lootcontainer-generateloot", _custom_loot)
+        var lib = Engine.get_meta("RTVModLib")
+        if lib._is_ready:
+            _on_lib_ready()
+        else:
+            lib.frameworks_ready.connect(_on_lib_ready)
+
+func _on_lib_ready():
+    _lib = Engine.get_meta("RTVModLib")
+    var id = _lib.hook("lootcontainer-generateloot", _custom_loot)
         if id == -1:
             # Another mod already owns this replace hook
             print("MyMod: GenerateLoot replace hook rejected, using pre/post instead")
@@ -249,7 +273,7 @@ func _custom_loot():
 
 ## Notes
 
-- **Hook registration timing**: Register hooks after RTVModLib initializes. Use `await get_tree().create_timer(1.0).timeout` or check `Engine.has_meta("RTVModLib")` before accessing the library.
+- **Hook registration timing**: Connect to the `frameworks_ready` signal on RTVModLib to know when hooks can be registered. Check `_is_ready` in case the signal already fired before your mod loaded.
 - **Replace hooks are first-wins**: Only one mod can own a replace hook for a given method. Check with `has_replace()` before registering.
 - **Resource scripts are not hookable**: SlotData, ItemData, GameData, save files, etc. extend Resource and cannot be wrapped without breaking serialization. Until a workaround is determined, hook the methods that use them (Interface, Grid, Loader) instead.
 - **Multiple mods can coexist**: Pre/post/callback hooks stack and all registered hooks fire in priority order. Only replace hooks are exclusive.

@@ -159,6 +159,11 @@ func _ready():
 
 	get_tree().node_added.connect(_on_node_added)
 
+	# Signal that frameworks are loaded and hooks can be registered
+	var lib = Engine.get_meta("RTVModLib")
+	lib._is_ready = true
+	lib.frameworks_ready.emit()
+
 	print("RTVModLib: loaded " + str(_swap_map.size()) + " framework(s): " + ", ".join(_needed.keys()))
 
 func _collect_needed_from_modloader():
@@ -243,7 +248,7 @@ func _deferred_swap(node: Node, framework_script: Script, path: String):
 	if node.get_script() == framework_script:
 		return
 
-	# Save ALL property values before script swap (@export, @onready, regular vars)
+	# Save ALL property values before script swap
 	var saved_props = {}
 	for prop in node.get_property_list():
 		var pname = prop["name"]
@@ -255,13 +260,22 @@ func _deferred_swap(node: Node, framework_script: Script, path: String):
 
 	node.set_script(framework_script)
 
-	# Restore all saved properties
+	# Restore only properties whose values differ from the new script's defaults.
+	# This avoids re-triggering @export setters when the value hasn't changed.
 	for pname in saved_props:
-		node.set(pname, saved_props[pname])
+		var current = node.get(pname)
+		if current != saved_props[pname]:
+			node.set(pname, saved_props[pname])
 
-	# Re-trigger _ready on the new script so hooks can fire
-	if node.is_inside_tree():
-		node.notification(Node.NOTIFICATION_READY)
+	# Mark _ready as already done (vanilla _ready ran before our swap).
+	# This prevents the framework wrapper from calling super() in _ready again.
+	if "_rtv_ready_done" in node:
+		node._rtv_ready_done = true
+
+	# Call _ready() directly instead of NOTIFICATION_READY to avoid
+	# engine-level @onready re-resolution (which crashes on missing nodes).
+	if node.is_inside_tree() and node.has_method("_ready"):
+		node._ready()
 
 	_swap_count += 1
 	if _swap_count <= 50:
